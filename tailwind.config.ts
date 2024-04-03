@@ -4,7 +4,6 @@ const colors = require('tailwindcss/colors');
 
 const config: Config = {
     content: [
-        './app/components/**/*.{js,ts,jsx,tsx,mdx}',
         './app/**/*.{js,ts,jsx,tsx,mdx}',
         'node_modules/flowbite-react/lib/esm/**/*.js',
     ],

@@ -129,8 +129,7 @@ const config: Config = {
      */
     moduleNameMapper: {
         // ...
-        '^@app/(.*)$': '<rootDir>/app/$1',
-        '^@components/(.*)$': '<rootDir>/app/components/$1',
+        '^@app/(.*)$': '<rootDir>/app/$1'
     },
 
     /*
