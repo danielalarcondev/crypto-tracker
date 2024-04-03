@@ -1,20 +1,31 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
+
+const colors = require('tailwindcss/colors');
 
 const config: Config = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+    content: [
+        './pages/**/*.{js,ts,jsx,tsx,mdx}',
+        './components/**/*.{js,ts,jsx,tsx,mdx}',
+        './app/**/*.{js,ts,jsx,tsx,mdx}',
+        'node_modules/flowbite-react/lib/esm/**/*.js',
+    ],
+    darkMode: 'selector',
+    plugins: [
+        require('flowbite/plugin')
+    ],
+    theme: {
+        colors: {
+            black: '#000',
+            primary: colors.zinc,
+            secondary: colors.orange,
+            transparent: 'transparent',
+            white: '#FFF',
+        },
+        extend: {
+            backgroundImage: {
+                'blue-gradient': 'linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246)) rgb(255, 255, 255)'
+            },
+        },
     },
-  },
-  plugins: [],
 };
 export default config;

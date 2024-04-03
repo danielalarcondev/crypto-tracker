@@ -1,0 +1,18 @@
+{
+	"editor.insertSpaces": false,
+	"editor.indentSize": "tabSize",
+	"editor.formatOnSave": true,
+	"editor.detectIndentation": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit",
+	},
+	"eslint.validate": [
+		"javascript", "typescript", "javascriptreact", "typescriptreact"
+	],
+	"css.customData": [
+		".vscode/css_custom_data.json"
+	],
+	"cSpell.words": [
+		"flowbite"
+	]
+}
