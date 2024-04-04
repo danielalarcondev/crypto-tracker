@@ -14,5 +14,6 @@
 	],
 	"cSpell.words": [
 		"flowbite"
-	]
+	],
+	"typescript.preferences.importModuleSpecifier": "non-relative"
 }

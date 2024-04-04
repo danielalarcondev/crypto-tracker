@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+	"baseUrl": ".",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,10 +19,7 @@
       }
     ],
     "paths": {
-	  "@/*": ["./app/*"],
-	  "@shared-components/*": ["./app/shared-components/*"],
-	  "@shared-hooks/*": ["./app/shared-hooks/*"],
-	  "@types/*": ["./app/types/*"],
+	  "@/*": ["app/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
