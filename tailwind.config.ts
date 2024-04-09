@@ -6,6 +6,8 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const config: Config = {
     content: [
         './app/**/*.{js,ts,jsx,tsx,mdx}',
+        './components/**/*.{js,ts,jsx,tsx,mdx}',
+        './utils/**/*.{js,ts,jsx,tsx,mdx}',
         'node_modules/flowbite-react/lib/esm/**/*.js'
     ],
     darkMode: 'selector',

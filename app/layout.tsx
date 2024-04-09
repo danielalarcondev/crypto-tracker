@@ -1,4 +1,4 @@
-import './globals.css';
+import '../globals.css';
 
 import Header from '@/components/header/header';
 import { Inter } from 'next/font/google';

@@ -1,4 +1,4 @@
-export default function Tracker() {
+export default function TrackerPage() {
 
     return (
         <div>
