@@ -2,6 +2,9 @@
 	"root": true,
 	"extends": ["next/core-web-vitals"],
 	"ignorePatterns": ["cypress/**"],
+	"globals": {
+		"globalThis": "readonly"
+	},
 	"rules": {
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"],
@@ -91,7 +94,7 @@
 		"max-classes-per-file": "warn",
 		"max-depth": ["warn", 4],
 		"max-lines": ["warn", 500],
-		"max-lines-per-function": ["warn", 200],
+		"max-lines-per-function": ["warn", 1000],
 		"max-nested-callbacks": ["warn", 4],
 		"max-params": ["warn", 4],
 		"max-statements": ["warn", 10],
@@ -182,8 +185,8 @@
 		"require-await": "error",
 		"require-unicode-regexp": "warn",
 		"require-yield": "error",
-		"sort-imports": "error",
-		"sort-keys": "warn",
+		"sort-imports": "off",
+		"sort-keys": "off",
 		"sort-vars": "warn",
 		"strict": "warn",
 		"symbol-description": "error",
