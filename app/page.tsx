@@ -1,10 +1,6 @@
-import Link from 'next/link';
+import { Routes } from '@/utils/routes';
+import { redirect } from 'next/navigation';
  
-export default function Home() {
-    return (
-        <div>
-            <h1>Home</h1>
-            <Link href="/about">About</Link>
-        </div>
-    );
+export default function AppPage() {
+    redirect(Routes.DEFAULT);
 }
