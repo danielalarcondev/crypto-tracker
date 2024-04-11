@@ -1,17 +1,10 @@
-import { XS_MEDIA_QUERY } from '@components/header/use-header-scroll/use-header-scroll';
 import { expect, test } from '@playwright/test';
-
-const ONE_PX = 1;
-const SMALL_SCREEN_WIDTH = (XS_MEDIA_QUERY - ONE_PX);
-const LARGE_SCREEN_WIDTH = 1920;
+import { LARGE_SCREEN, SMALL_SCREEN } from 'tests/utils';
 
 test.describe('Header: ', () => {
     test('should render menu for large screens', async ({ page }) => {
 
-        await page.setViewportSize({
-            width: LARGE_SCREEN_WIDTH,
-            height: 1080,
-        });
+        await page.setViewportSize(LARGE_SCREEN);
 
         await page.goto('http://localhost:3000/');
         await page.evaluate(() => document.fonts.ready);
@@ -29,10 +22,7 @@ test.describe('Header: ', () => {
 
     test('should render menu for small screens ', async ({ page }) => {
 
-        await page.setViewportSize({
-            width: SMALL_SCREEN_WIDTH,
-            height: 900,
-        });
+        await page.setViewportSize(SMALL_SCREEN);
 
         await page.goto('http://localhost:3000/');
         await page.evaluate(() => document.fonts.ready);
@@ -50,10 +40,7 @@ test.describe('Header: ', () => {
 
     test('should open and close menu ', async ({ page }) => {
 
-        await page.setViewportSize({
-            width: SMALL_SCREEN_WIDTH,
-            height: 900,
-        });
+        await page.setViewportSize(SMALL_SCREEN);
 
         await page.goto('http://localhost:3000/');
         await page.evaluate(() => document.fonts.ready);
