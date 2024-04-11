@@ -1,5 +1,5 @@
 import { ChangeEvent, useCallback } from 'react';
-import useSystemTheme from '@/components/header/system-theme/useSystemTheme';
+import useSystemTheme from '@components/header/theme-toggle/use-system-theme/useSystemTheme';
 
 export default function ThemeToggle() {
 	
@@ -35,6 +35,7 @@ export default function ThemeToggle() {
                     </svg>
                 </div>
                 <input
+                    data-testid="header-theme-toggle-input"
                     type='checkbox'
                     className={['theme-switcher', 'sr-only', 'peer'].join(' ')}
                     checked={isThemeSwitcherChecked}

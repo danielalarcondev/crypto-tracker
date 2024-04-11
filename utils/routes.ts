@@ -3,5 +3,3 @@ export enum Routes {
 	"DEFAULT" = "/tracker",
 	"TRACKER" = "/tracker"
 }
-
-export const getDefaultRoute = () => Routes.DEFAULT;

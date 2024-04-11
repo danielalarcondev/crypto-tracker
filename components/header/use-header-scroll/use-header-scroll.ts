@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 const INITIAL_SCROLL = 0;
 const SCROLL_HANDLER_DELAY = 200;
-const XS_MEDIA_QUERY = 640;
+export const XS_MEDIA_QUERY = 640;
 
 interface HeaderScrollResult {
 	shouldHideHeader: boolean

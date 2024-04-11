@@ -1,6 +1,6 @@
 import '../globals.css';
 
-import Header from '@/components/header/header';
+import Header from '@components/header/header';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import React from 'react';

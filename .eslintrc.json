@@ -3,7 +3,8 @@
 	"extends": ["next/core-web-vitals"],
 	"ignorePatterns": ["cypress/**"],
 	"globals": {
-		"globalThis": "readonly"
+		"globalThis": "readonly",
+		"jest": "readonly"
 	},
 	"rules": {
 		"quotes": ["error", "single"],
@@ -97,7 +98,7 @@
 		"max-lines-per-function": ["warn", 1000],
 		"max-nested-callbacks": ["warn", 4],
 		"max-params": ["warn", 4],
-		"max-statements": ["warn", 10],
+		"max-statements": ["warn", 15],
 		"multiline-comment-style": ["warn", "starred-block"],
 		"new-cap": "error",
 		"no-alert": "warn",

@@ -6,11 +6,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import classNames from 'classnames';
 
-import Settings from '@/components/header/settings/settings';
-import ListItem from '@/components/header/list-item/list-item';
-import { useHeaderScroll } from '@/components/header/use-header-scroll/use-header-scroll';
+import Settings from '@components/header/settings/settings';
+import ListItem from '@components/header/list-item/list-item';
+import { useHeaderScroll } from '@components/header/use-header-scroll/use-header-scroll';
 
-import { Routes } from '@/utils/routes';
+import { Routes } from '@utils/routes';
 
 export default function Header() {
 	
@@ -28,6 +28,7 @@ export default function Header() {
         })}>
 
             <nav
+                data-testid='header-nav'
                 className={
                     classNames([
                         'menu-nav',
@@ -43,7 +44,7 @@ export default function Header() {
                 	['bg-white', 'dark:bg-neutral-800'].join(' ')
                     ].join(' '), {
                         'h-16': !isMenuOpen,
-                        'h-full flex-col overflow-auto': isMenuOpen
+                        'h-full flex-col overflow-auto nav-menu-open': isMenuOpen
                     })}>
                 <div
                     className={classNames([
@@ -60,7 +61,7 @@ export default function Header() {
                     <div className={classNames(['content-center', 'sm:hidden'].join(' '), {
                         'pt-4': isMenuOpen
                     })}>
-                        <svg onClick={handleMenuButtonClick} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" 
+                        <svg data-testid="header-menu-button" onClick={handleMenuButtonClick} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" 
                             className={
                                 classNames(['w-8 h-8'].join(' '), {
                                     'rotate-90': isMenuOpen
@@ -70,7 +71,7 @@ export default function Header() {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </div>
-                    <div className={classNames([
+                    <div data-testid="header-logo" className={classNames([
                         'flex',
                         'flex-wrap',
                         'pt-2 pr-2'
@@ -95,6 +96,7 @@ export default function Header() {
                         })}
                         id='navbar-sticky'>
                         <ul
+                            data-testid="header-ul"
                             className={classNames([
                                 'menu-ul',
                                 'flex',
@@ -119,7 +121,7 @@ export default function Header() {
                     </div>
                     <div
                         className={classNames([
-                            'w-12 md:w-32',
+                            'w-12 md:w-24',
                             'cursor-pointer',
                             'order-2',
                         ].join(' '), {
