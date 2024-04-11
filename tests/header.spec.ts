@@ -8,13 +8,13 @@ const LARGE_SCREEN_WIDTH = 1920;
 test.describe('Header: ', () => {
     test('should render menu for large screens', async ({ page }) => {
 
-        await page.goto('http://localhost:3000/');
-
         await page.setViewportSize({
             width: LARGE_SCREEN_WIDTH,
             height: 1080,
         });
 
+        await page.goto('http://localhost:3000/');
+        await page.evaluate(() => document.fonts.ready);
 	
         const menuButton = await page.getByTestId('header-menu-button');
         const menuUl = await page.getByTestId('header-ul');
@@ -35,6 +35,7 @@ test.describe('Header: ', () => {
         });
 
         await page.goto('http://localhost:3000/');
+        await page.evaluate(() => document.fonts.ready);
 	
         const menuButton = await page.getByTestId('header-menu-button');
         const menuUl = await page.getByTestId('header-ul');
@@ -55,6 +56,7 @@ test.describe('Header: ', () => {
         });
 
         await page.goto('http://localhost:3000/');
+        await page.evaluate(() => document.fonts.ready);
 
         const nav = await page.getByTestId('header-nav');
 

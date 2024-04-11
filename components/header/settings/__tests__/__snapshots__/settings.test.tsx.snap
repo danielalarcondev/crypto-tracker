@@ -54,6 +54,7 @@ exports[`Settings:  should open settings menu 1`] = `
         </div>
         <input
           class="theme-switcher sr-only peer"
+          data-testid="header-theme-toggle-input"
           type="checkbox"
         />
         <div
@@ -137,6 +138,7 @@ exports[`Settings:  should render correctly 1`] = `
         </div>
         <input
           class="theme-switcher sr-only peer"
+          data-testid="header-theme-toggle-input"
           type="checkbox"
         />
         <div
