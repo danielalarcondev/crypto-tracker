@@ -6,6 +6,9 @@
 import type {Config} from 'jest';
 import nextJest from 'next/jest.js';
 
+const { pathsToModuleNameMapper } = require('ts-jest');
+const { compilerOptions } = require('./tsconfig');
+
 const config: Config = {
     /*
      * All imported modules in your tests should be mocked automatically
@@ -127,10 +130,7 @@ const config: Config = {
     /*
      * A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
      */
-    moduleNameMapper: {
-        // ...
-        '^@app/(.*)$': '<rootDir>/app/$1'
-    },
+    moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
 
     /*
      * An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -221,8 +221,8 @@ const config: Config = {
 
     /*
      * The test environment that will be used for testing
-     * TestEnvironment: "jest-environment-node",
-     */
+     */ 
+    testEnvironment: 'jsdom',
 
     /*
      * Options that will be passed to the testEnvironment
@@ -236,7 +236,7 @@ const config: Config = {
 
     // The glob patterns Jest uses to detect test files
     testMatch: [
-        '**/__tests__/__unit__/**/*test.[jt]s?(x)'
+        '**/__tests__**/*test.[jt]s?(x)'
     ],
 
     /*

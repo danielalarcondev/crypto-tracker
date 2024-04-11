@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Item:  should have active status 1`] = `
+<div>
+  <li
+    class="pl-3 pr-3 text-xl hover:cursor-pointer border-b-4 hover:text-primary-500 border-primary-500 w-fit h-[calc(100%+1px)]"
+  >
+    <a
+      class="menu-anchor block md:bg-transparent h-full flex items-center mt-1"
+      href="https://test.com/assets"
+    >
+      Assets
+    </a>
+  </li>
+</div>
+`;
+
+exports[`List Item:  should render correct data 1`] = `
+<div>
+  <li
+    class="pl-3 pr-3 text-xl hover:cursor-pointer border-b-4 hover:text-primary-500 border-transparent w-fit h-[calc(100%+1px)]"
+  >
+    <a
+      class="menu-anchor block md:bg-transparent h-full flex items-center mt-1"
+      href="https://test.com/tracks"
+    >
+      Tracks
+    </a>
+  </li>
+</div>
+`;

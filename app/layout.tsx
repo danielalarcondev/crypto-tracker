@@ -1,5 +1,6 @@
-import './globals.css';
+import '../globals.css';
 
+import Header from '@components/header/header';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import React from 'react';
@@ -19,7 +20,21 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            <body className={
+                [
+                    inter.className, 
+                    'max-w-screen-2xl', 
+                    'mx-auto', 
+                    ['bg-neutral-200 dark:bg-neutral-900'].join(' '), 
+                    ['text-neutral-950 dark:text-neutral-50'].join(' ')
+                ].join(' ')
+            }>
+                <Header />
+                <main className={['mt-16', 'pt-16'].join(' ')}>
+                    {children}
+                </main>
+                
+            </body>
         </html>
     );
 }

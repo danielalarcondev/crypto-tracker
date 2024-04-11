@@ -3,31 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky",
-    "test:unit": "jest",
-    "test:e2e": "playwright test",
-    "test:e2e-ui": "playwright test --ui",
-    "test:components": "playwright test -c playwright-ct.config.ts --project=components",
-    "test:components-ui": "playwright test --ui -c playwright-ct.config.ts --project=components",
-    "test:all": "npm run test:unit && npm run test:components && npm run test:e2e"
+    "dev": "npx next dev",
+    "build": "npx next build",
+    "start": "npx next start",
+    "lint": "npx next lint",
+    "prepare": "npx husky",
+    "test": "npx jest",
+	"test:e2e": "npx playwright test --headed",
+    "test:e2e-ui": "npx playwright test --ui",
+    "test:all": "npm run test && npm run test:e2e"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "flowbite-react": "^0.7.8",
-    "local-cypress": "^1.2.6",
+    "playwright": "^1.43.0",
     "react": "^18",
     "react-dom": "^18",
     "server-only": "^0.0.1",
+    "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "@playwright/experimental-ct-react": "^1.42.1",
     "@playwright/test": "^1.42.1",
     "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.2",
+    "@testing-library/react": "^14.3.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -39,7 +38,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "next": "^14.1.4",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0",
+    "tailwindcss": "^3.4.3",
     "typescript": "^5"
   }
 }
