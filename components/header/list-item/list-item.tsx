@@ -16,19 +16,18 @@ export default function ListItem({ path, text, isMenuOpen }: ListItemProps) {
 
     return (
         <li
-            className={
-                classNames([
-                    'pl-3',
-                    'pr-3',
-                    'text-xl',
-                    'hover:cursor-pointer',
-                    'border-b-4', 'hover:text-primary-500'
-                ].join(' '), {
-                    'border-primary-500': isActiveLink,
-                    'border-transparent': !isActiveLink,
-                    'w-[calc(100%-8px)] h-16 mr-2': isMenuOpen,
-                    'w-fit h-[calc(100%+1px)]': !isMenuOpen
-                })
+            className={classNames([
+                'pl-3',
+                'pr-3',
+                'text-xl',
+                'hover:cursor-pointer',
+                'border-b-4', 'hover:text-primary-500'
+           		].join(' '), {
+                	'border-primary-500': isActiveLink,
+                	'border-transparent': !isActiveLink,
+                	'w-[calc(100%-8px)] h-16 mr-2': isMenuOpen,
+                	'w-fit h-[calc(100%+1px)]': !isMenuOpen
+           		})
             }>
             <Link
                 href={path}

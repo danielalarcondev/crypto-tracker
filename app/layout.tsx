@@ -20,17 +20,26 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={
-                [
-                    inter.className, 
-                    'max-w-screen-2xl', 
-                    'mx-auto', 
-                    ['bg-neutral-200 dark:bg-neutral-900'].join(' '), 
+            <body 
+                className={[
+                    inter.className,
+                    'max-w-[3840px]',
+                    'mx-auto',
+                    'break-all',
+                    ['bg-neutral-200 dark:bg-neutral-900'].join(' '),
                     ['text-neutral-950 dark:text-neutral-50'].join(' ')
-                ].join(' ')
-            }>
+                	].join(' ')
+            	}
+            >
                 <Header />
-                <main className={['mt-16', 'pt-16'].join(' ')}>
+                <main 
+                    className={[
+                        'mt-24 md:mt-32', 
+                        'md:mx-16', 
+                        'md:mb-16'
+                    ].join(' ')
+                    }
+                >
                     {children}
                 </main>
                 

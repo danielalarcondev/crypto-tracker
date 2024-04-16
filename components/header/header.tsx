@@ -23,29 +23,37 @@ export default function Header() {
     }, [isMenuOpen]);
 
     return (
-        <header className={classNames(['w-full'].join(' '), {
-            'hidden': shouldHideHeader
-        })}>
+        <header 
+            className={classNames([
+                'header',
+                'max-w-[3840px]',
+                'fixed',
+                'top-0',
+                'w-full',
+                'z-20',
+                'border-b',
+                'flex',
+                'shadow-[0px_10px_15px_-10px_rgba(0,0,0,0.3)]',
+                ['border-neutral-300', 'dark:border-neutral-700'].join(' '),
+                ['bg-white', 'dark:bg-neutral-800'].join(' ')
+            	].join(' '), 
+            	{
+                	'h-16': !isMenuOpen,
+                	'h-full flex-col overflow-auto nav-menu-open': isMenuOpen,
+                	'hidden': shouldHideHeader
+            	}
+            )}
+        >
 
             <nav
                 data-testid='header-nav'
-                className={
-                    classNames([
-                        'menu-nav',
-                        'max-w-screen-2xl',
-                        'fixed',
-                        'top-0',
-                        'w-full',
-                        'z-20',
-                        'border-b',
-                        'flex',
-                        'shadow-[0px_10px_15px_-10px_rgba(0,0,0,0.3)]',
-                        ['border-neutral-300', 'dark:border-neutral-700'].join(' '),
-                	['bg-white', 'dark:bg-neutral-800'].join(' ')
-                    ].join(' '), {
-                        'h-16': !isMenuOpen,
-                        'h-full flex-col overflow-auto nav-menu-open': isMenuOpen
-                    })}>
+                className={[
+                    'w-full',
+                    'max-w-[1920px]',
+                    'my-0',
+                    'mx-auto'
+                ].join(' ')}
+            >
                 <div
                     className={classNames([
                         'flex',
@@ -58,29 +66,54 @@ export default function Header() {
                         'h-auto flex-col flex-nowrap': isMenuOpen,
                         'h-full flex-wrap': !isMenuOpen
                     })}>
-                    <div className={classNames(['content-center', 'sm:hidden'].join(' '), {
-                        'pt-4': isMenuOpen
-                    })}>
+                    <div 
+                        className={classNames([
+                            'content-center', 
+                            'sm:hidden'
+                        	].join(' '), 
+                        	{
+                        		'pt-4': isMenuOpen
+                    		}
+                        )}
+                    >
                         <svg data-testid="header-menu-button" onClick={handleMenuButtonClick} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" 
-                            className={
-                                classNames(['w-8 h-8'].join(' '), {
-                                    'rotate-90': isMenuOpen
-                                })
-                            }
+                            className={classNames([
+                                'w-8', 
+                                'h-8'
+                            	].join(' '), 
+                            	{
+                                	'rotate-90': isMenuOpen
+                            	}
+                            )}
                         >
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </div>
-                    <div data-testid="header-logo" className={classNames([
-                        'flex',
-                        'flex-wrap',
-                        'pt-2 pr-2'
-                    ].join(' '), {
-                        'h-auto w-fit absolute left-0 right-0 mx-auto pt-2': isMenuOpen,
-                        'h-full flex-1 sm:flex-[none] justify-end md:justify-normal': !isMenuOpen
-                    })}>
+                    <div 
+                        data-testid="header-logo" 
+                        className={classNames([
+                            'flex',
+                            'flex-wrap',
+                            'pt-2 pr-2'
+                        	].join(' '), 
+                        	{
+                            	'h-auto w-fit absolute left-0 right-0 mx-auto pt-2': isMenuOpen,
+                            	'h-full flex-1 sm:flex-[none] justify-end md:justify-normal': !isMenuOpen
+                        	}
+                        )}
+                    >
                         <Link href={Routes.DEFAULT}>
-                            <Image width="48" height="48" src="/logo.svg" alt="logo" className={['w-12', 'h-12'].join(' ')} />
+                            <Image 
+                                width="48" 
+                                height="48" 
+                                src="/logo.svg" 
+                                alt="logo" 
+                                className={[
+                                    'w-12', 
+                                    'h-12'
+                                	].join(' ')
+                                } 
+                            />
                         </Link>
                     </div>
                     <div
