@@ -11,7 +11,8 @@ export default function TrackerPage() {
                 ].join(' ')
                 }
             >
-            	<h1 
+            	<h1
+                    data-testid="tracker-page-title"
                     className={[
                         'text-2xl', 
                         'font-bold'
@@ -20,7 +21,8 @@ export default function TrackerPage() {
                 >
 					Tracker
                 </h1>
-                <h2 
+                <h2
+                    data-testid="tracker-page-subtitle"
                     className={[
                         'flex', 
                         'flex-wrap'

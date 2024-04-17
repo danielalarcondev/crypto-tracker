@@ -2,14 +2,17 @@
 
 import './tracker-pagination.css';
 import ResponsivePagination from 'react-responsive-pagination';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
-const INITIAL_PAGE = 1;
+interface TrackerPaginationProps {
+	currentPage: number;
+	setCurrentPage: Dispatch<SetStateAction<number>>
+	totalPages: number
+}
 
-export default function TrackerPagination() {
+export default function TrackerPagination({ currentPage, setCurrentPage, totalPages }: TrackerPaginationProps) {
 
-    const [currentPage, setCurrentPage] = useState(INITIAL_PAGE);
     const [shouldHide, setShouldHide] = useState(true);
 
     useEffect(() => {
@@ -18,6 +21,7 @@ export default function TrackerPagination() {
 
     return (
         <div 
+            data-testid="tracker-pagination"
             className={[
                 'mb-6',
                 'mx-auto',
@@ -26,7 +30,7 @@ export default function TrackerPagination() {
             }
         >
             <ResponsivePagination
-                total={100}
+                total={totalPages}
                 current={currentPage}
                 onPageChange={setCurrentPage}
                 className={classNames([

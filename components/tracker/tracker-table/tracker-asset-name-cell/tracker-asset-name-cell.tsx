@@ -10,13 +10,15 @@ interface TrackerAssetNameCellProps {
 	symbol: string;
 }
 
+export const defaultNameCelltUrl = '/logo.svg';
+
 export default function TrackerAssetNameCell({ name, symbol }: TrackerAssetNameCellProps) {
 
     const iconUrl = `https://assets.coincap.io/assets/icons/${symbol.toLocaleLowerCase()}@2x.png`;
-    const defaultUrl = '/logo.svg';
 
     const onImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
-        (event.target as HTMLImageElement).src = defaultUrl;
+        (event.target as HTMLImageElement).src = defaultNameCelltUrl;
+        (event.target as HTMLImageElement).removeAttribute('srcset');
     };
 
     return (
@@ -32,7 +34,8 @@ export default function TrackerAssetNameCell({ name, symbol }: TrackerAssetNameC
                 .join(' ')
             }
         >
-            <Image 
+            <Image
+                data-testid="tracker-table-name-image"
                 width={32}
                 height={32}
                 src={iconUrl}

@@ -13,7 +13,8 @@ export interface TrackerTableProps {
 
 export default function TrackerTable({ assets }: TrackerTableProps) {
     return (
-        <div 
+        <div
+            data-testid="tracker-table"
             className={[
                 'overflow-x-auto',
                 'rounded-lg'

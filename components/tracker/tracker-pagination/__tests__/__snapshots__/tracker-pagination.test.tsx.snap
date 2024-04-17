@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackerPage:  should render correctly 1`] = `
+<div>
+  <div
+    class="mb-6 mx-auto w-56 sm:w-[32rem] min-h-10"
+    data-testid="tracker-pagination"
+  >
+    <ul
+      class="inline-flex w-full justify-center"
+    >
+      <li
+        class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10 disabled border-none text-3xl navigation-span-pointer hover:scale-110"
+      >
+        <span
+          aria-label="Previous"
+          class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+        >
+          <span
+            aria-hidden="true"
+          >
+            «
+          </span>
+        </span>
+      </li>
+      <li
+        aria-current="page"
+        class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10 bg-primary-500 hover:!bg-primary-500 text-white"
+      >
+        <a
+          class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+          href="#"
+        >
+          1
+        </a>
+      </li>
+      <li
+        class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10"
+      >
+        <a
+          class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+          href="#"
+        >
+          2
+        </a>
+      </li>
+      <li
+        aria-hidden="true"
+        class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10 disabled"
+      >
+        <span
+          class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+        >
+          …
+        </span>
+      </li>
+      <li
+        class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10"
+      >
+        <a
+          class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+          href="#"
+        >
+          100
+        </a>
+      </li>
+      <li
+        class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10 border-none text-3xl navigation-span-pointer hover:scale-110"
+      >
+        <a
+          aria-label="Next"
+          class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+          href="#"
+        >
+          <span
+            aria-hidden="true"
+          >
+            »
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

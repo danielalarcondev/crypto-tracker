@@ -1,12 +1,18 @@
+'use client';
+
 import { Asset } from '@common-types/assets';
 import TrackerPagination from '@components/tracker/tracker-pagination/tracker-pagination';
 import TrackerTable from '@components/tracker/tracker-table/tracker-table';
+import { useState } from 'react';
+
+const INITIAL_PAGE = 1;
+const totalPages = 50;
 
 const FAKE_ASSETS: Asset[] = [
     {
         id: 'bitcoin',
         rank: '1',
-        symbol: 'BTC',
+        symbol: 'ddddddddddd',
         name: 'Bitcoin',
         supply: '17193925.0000000000000000',
         maxSupply: '21000000.0000000000000000',
@@ -137,6 +143,8 @@ const FAKE_ASSETS: Asset[] = [
 
 export default function Tracker() {
 	
+    const [currentPage, setCurrentPage] = useState(INITIAL_PAGE);
+
     return (
         <div 
             className={[
@@ -152,7 +160,7 @@ export default function Tracker() {
             }
         >
             <TrackerTable assets={FAKE_ASSETS} />
-            <TrackerPagination />
+            <TrackerPagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
         </div>
 
 
