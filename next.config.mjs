@@ -18,7 +18,9 @@ const nextConfig = {
                 pathname: '/assets/icons/**',
 		  },
         ],
-	  }
+	  },
+
+	  transpilePackages: ['react-responsive-pagination'],
 };
 
 export default nextConfig;

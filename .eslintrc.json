@@ -132,7 +132,7 @@
 		"no-lone-blocks": "warn",
 		"no-lonely-if": "warn",
 		"no-loop-func": "warn",
-		"no-magic-numbers": "error",
+		"no-magic-numbers": "warn",
 		"no-multi-assign": "warn",
 		"no-multi-str": "warn",
 		"no-negated-condition": "warn",
