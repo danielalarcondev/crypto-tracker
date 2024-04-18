@@ -1,14 +1,14 @@
 import type { Config } from 'tailwindcss';
 
 const colors = require('tailwindcss/colors');
-const defaultTheme = require('tailwindcss/defaultTheme');
 
 const config: Config = {
     content: [
         './app/**/*.{js,ts,jsx,tsx,mdx}',
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './utils/**/*.{js,ts,jsx,tsx,mdx}',
-        'node_modules/flowbite-react/lib/esm/**/*.js'
+        './common-types/**/*.{js,ts,jsx,tsx,mdx}',
+        'node_modules/flowbite-react/lib/esm/**/*.js',
     ],
     darkMode: 'selector',
     plugins: [
@@ -26,14 +26,14 @@ const config: Config = {
             white: '#FFF',
         },
         extend: {
-            backgroundImage: {
-                'blue-gradient': 'linear-gradient(to right, rgb(63, 81, 181), rgb(100, 181, 246)) rgb(255, 255, 255)'
-            },
+            screens: {
+                'xxs': '360px',
+                'xs': '475px',
+                '3xl': '1920px',
+                '4xl': '2560px',
+                '5xl': '3840px'
+            }
         },
-        screens: {
-            'xs': '475px',
-            ...defaultTheme.screens,
-        }
-    },
+    }
 };
 export default config;

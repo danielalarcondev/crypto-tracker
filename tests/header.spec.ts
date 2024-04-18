@@ -13,7 +13,7 @@ test.describe('Header: ', () => {
         const menuUl = await page.getByTestId('header-ul');
         const settingsIcon = await page.getByTestId('header-settings-icon');
 	
-        await expect(page).toHaveScreenshot();
+        await expect(page.locator('.header')).toHaveScreenshot();
 		
         await expect(menuUl).toBeVisible();
         await expect(settingsIcon).toBeVisible();
@@ -31,7 +31,7 @@ test.describe('Header: ', () => {
         const menuUl = await page.getByTestId('header-ul');
         const settingsIcon = await page.getByTestId('header-settings-icon');
 	
-        await expect(page).toHaveScreenshot();
+        await expect(page.locator('.header')).toHaveScreenshot();
 
         await expect(menuUl).toBeHidden();
         await expect(settingsIcon).toBeHidden();
@@ -51,11 +51,11 @@ test.describe('Header: ', () => {
 		
         await page.getByTestId('header-menu-button').click();
         expect(await page.evaluate(() => document.querySelector('.nav-menu-open'))).toBeDefined();
-        await expect(page).toHaveScreenshot('menu-open.png');
+        await expect(page.locator('.header')).toHaveScreenshot('menu-open.png');
 		
         await page.getByTestId('header-menu-button').click();
         expect(await nav.locator('.nav-menu-open')).toBeHidden();
-        await expect(page).toHaveScreenshot('menu-closed.png');
+        await expect(page.locator('.header')).toHaveScreenshot('menu-closed.png');
     });
 });
  

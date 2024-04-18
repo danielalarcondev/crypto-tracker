@@ -25,7 +25,7 @@ exports[`Settings:  should open settings menu 1`] = `
     </svg>
   </button>
   <div
-    class="relative w-40 h-16 -bottom-[55px] left-[-105px] shadow-md rounded-b outline outline-1 -outline-offset-1 outline-primary-500 bg-white dark:bg-neutral-700"
+    class="relative w-40 h-16 -bottom-[55px] left-[-105px] shadow-md rounded-b outline outline-1 -outline-offset-1 outline-primary-500 bg-white dark:bg-neutral-800"
     data-testid="header-settings-overlay"
   >
     <div
@@ -109,7 +109,7 @@ exports[`Settings:  should render correctly 1`] = `
     </svg>
   </button>
   <div
-    class="relative w-40 h-16 -bottom-[55px] left-[-105px] shadow-md rounded-b outline outline-1 -outline-offset-1 outline-primary-500 bg-white dark:bg-neutral-700 hidden"
+    class="relative w-40 h-16 -bottom-[55px] left-[-105px] shadow-md rounded-b outline outline-1 -outline-offset-1 outline-primary-500 bg-white dark:bg-neutral-800 hidden"
     data-testid="header-settings-overlay"
   >
     <div

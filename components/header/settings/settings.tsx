@@ -35,10 +35,20 @@ export default function Settings() {
 
     return (
         <>
-            <button data-testid='header-settings-icon' onClick={handleClick} className={[
-                'absolute w-fit h-fit',
-            ].join(' ')}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeWidth="1.5" 
+            <button 
+                data-testid='header-settings-icon' 
+                onClick={handleClick} 
+                className={[
+                    'absolute', 
+                    'w-fit', 
+                    'h-fit',
+                	].join(' ')
+                }
+            >
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    strokeWidth="1.5" 
                     className={
                         classNames([
                             'w-8',
@@ -58,7 +68,9 @@ export default function Settings() {
                 </svg>
             </button>
             
-            <div data-testid={'header-settings-overlay'} onClick={handleClicksInsideSettingsPanel} 
+            <div 
+                data-testid={'header-settings-overlay'} 
+                onClick={handleClicksInsideSettingsPanel} 
                 className={
                     classNames([
                         'relative',
@@ -72,7 +84,7 @@ export default function Settings() {
                         'outline-1',
                         '-outline-offset-1',
                         'outline-primary-500',
-                        ['bg-white', 'dark:bg-neutral-700'].join(' ')
+                        ['bg-white', 'dark:bg-neutral-800'].join(' ')
                     ].join(' '), {
                         'hidden': !isSettingsOpen
                     })

@@ -7,7 +7,20 @@ const nextConfig = {
                 source: '/:path*'
             },
         ];
-    }
+    },
+
+    images: {
+        remotePatterns: [
+		  {
+                protocol: 'https',
+                hostname: 'assets.coincap.io',
+                port: '',
+                pathname: '/assets/icons/**',
+		  },
+        ],
+	  },
+
+	  transpilePackages: ['react-responsive-pagination'],
 };
 
 export default nextConfig;

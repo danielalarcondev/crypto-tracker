@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npx next dev",
     "build": "npx next build",
     "start": "npx next start",
+    "start:dev": "npx next dev",
     "lint": "npx next lint",
     "prepare": "npx husky",
     "test": "npx jest",
-	"test:e2e": "npx playwright test --headed",
+    "test:e2e": "npx playwright test --headed",
     "test:e2e-ui": "npx playwright test --ui",
     "test:all": "npm run test && npm run test:e2e"
   },
@@ -19,6 +19,7 @@
     "playwright": "^1.43.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-responsive-pagination": "^2.4.3",
     "server-only": "^0.0.1",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2"
