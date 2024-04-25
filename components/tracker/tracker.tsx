@@ -1,168 +1,85 @@
 'use client';
 
-import { Asset } from '@common-types/assets';
+import NoResults from '@components/tracker/no-results/no-results';
 import TrackerPagination from '@components/tracker/tracker-pagination/tracker-pagination';
+import { useTrackerRequest } from '@components/tracker/tracker-request/use-tracker-request';
 import TrackerTable from '@components/tracker/tracker-table/tracker-table';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 const INITIAL_PAGE = 1;
-const totalPages = 50;
-
-const FAKE_ASSETS: Asset[] = [
-    {
-        id: 'bitcoin',
-        rank: '1',
-        symbol: 'ddddddddddd',
-        name: 'Bitcoin',
-        supply: '17193925.0000000000000000',
-        maxSupply: '21000000.0000000000000000',
-        marketCapUsd: '119150835874.4699281625807300',
-        volumeUsd24Hr: '2927959461.1750323310959460',
-        priceUsd: '6929.8217756835584756',
-        changePercent24Hr: '-0.8101417214350335',
-        vwap24Hr: '7175.0663247679233209'
-	  },
-	  {
-        id: 'ethereum',
-        rank: '2',
-        symbol: 'ETH',
-        name: 'Ethereum',
-        supply: '101160540.0000000000000000',
-        maxSupply: null,
-        marketCapUsd: '40967739219.6612727047843840',
-        volumeUsd24Hr: '1026669440.6451482672850841',
-        priceUsd: '404.9774667045200896',
-        changePercent24Hr: '-0.0999626159535347',
-        vwap24Hr: '415.3288028454417241'
-	  },
-	  {
-        id: 'ripple',
-        rank: '3',
-        symbol: 'XRP',
-        name: 'XRP',
-        supply: '39299874590.0000000000000000',
-        maxSupply: '100000000000.0000000000000000',
-        marketCapUsd: '16517228249.2902868380922380',
-        volumeUsd24Hr: '149328134.5032677889393019',
-        priceUsd: '0.4202870472643482',
-        changePercent24Hr: '-1.9518258685302665',
-        vwap24Hr: '0.4318239230821224'
-	  },
-	  {
-        id: 'bitcoin-cash',
-        rank: '4',
-        symbol: 'BCH',
-        name: 'Bitcoin Cash',
-        supply: '17278438.0000000000000000',
-        maxSupply: '21000000.0000000000000000',
-        marketCapUsd: '11902454455.1536127997298894',
-        volumeUsd24Hr: '287075418.5202079328968427',
-        priceUsd: '688.8617162705108413',
-        changePercent24Hr: '-1.5016094894459434',
-        vwap24Hr: '711.6276356693412774'
-	  },
-	  {
-        id: 'eos',
-        rank: '5',
-        symbol: 'EOS',
-        name: 'EOS',
-        supply: '906245118.0000000000000000',
-        maxSupply: '1000000000.0000000000000000',
-        marketCapUsd: '6327688685.5053582732768780',
-        volumeUsd24Hr: '373717579.0872289136334689',
-        priceUsd: '6.9823147841833210',
-        changePercent24Hr: '-0.2487845516123365',
-        vwap24Hr: '7.0345139617072947'
-	  },
-	  {
-        id: 'stellar',
-        rank: '6',
-        symbol: 'XLM',
-        name: 'Stellar',
-        supply: '18770261348.0000000000000000',
-        maxSupply: null,
-        marketCapUsd: '4395265468.8039656236913164',
-        volumeUsd24Hr: '28186508.6814478496347773',
-        priceUsd: '0.2341611226032443',
-        changePercent24Hr: '-3.4735437955390772',
-        vwap24Hr: '0.2412082330289685'
-	  },
-	  {
-        id: 'litecoin',
-        rank: '7',
-        symbol: 'LTC',
-        name: 'Litecoin',
-        supply: '57731482.0000000000000000',
-        maxSupply: '84000000.0000000000000000',
-        marketCapUsd: '4234484929.6430299360674272',
-        volumeUsd24Hr: '226037979.6802283949921417',
-        priceUsd: '73.3479339685586096',
-        changePercent24Hr: '-1.3117992300270579',
-        vwap24Hr: '75.1659221835912383'
-	  },
-	  {
-        id: 'cardano',
-        rank: '8',
-        symbol: 'ADA',
-        name: 'Cardano',
-        supply: '25927070538.0000000000000000',
-        maxSupply: '45000000000.0000000000000000',
-        marketCapUsd: '3342664439.1225859377289638',
-        volumeUsd24Hr: '32741914.1355823452856056',
-        priceUsd: '0.1289256506716951',
-        changePercent24Hr: '0.0079476596654900',
-        vwap24Hr: '0.1310244403993645'
-	  },
-	  {
-        id: 'tether',
-        rank: '9',
-        symbol: 'USDT',
-        name: 'Tether',
-        supply: '2437140346.0000000000000000',
-        maxSupply: null,
-        marketCapUsd: '2439361941.9836262753306976',
-        volumeUsd24Hr: '2257075318.3468977492592858',
-        priceUsd: '1.0009115584940656',
-        changePercent24Hr: '0.1166673925934855',
-        vwap24Hr: '1.0089194093830538'
-	  },
-	  {
-        id: 'iota',
-        rank: '10',
-        symbol: 'MIOTA',
-        name: 'IOTA',
-        supply: '2779530283.0000000000000000',
-        maxSupply: '2779530283.0000000000000000',
-        marketCapUsd: '2403573545.0265314556170093',
-        volumeUsd24Hr: '39603276.8327675426897915',
-        priceUsd: '0.8647409095440071',
-        changePercent24Hr: '-5.2486878154413840',
-        vwap24Hr: '0.8988184197561133'
-	  }
-];
+const LIMIT = 100;
+const INITIAL_OFFSET = 0;
+const MAX_AMOUNT_ASSETS = 2296;
+const TOTAL_PAGES = Math.ceil(MAX_AMOUNT_ASSETS / LIMIT);
 
 export default function Tracker() {
-	
+
     const [currentPage, setCurrentPage] = useState(INITIAL_PAGE);
+    const { assets, requestGetAssets, requestCurrentPage, isRequesting } = useTrackerRequest();
+
+    const shouldShowLoading = isRequesting;
+    const shouldShowTable = Boolean(assets.length);
+    const shouldShowNoResults = !assets.length && !isRequesting;
+
+    useEffect(() => {
+        requestGetAssets(INITIAL_OFFSET);
+    }, [requestGetAssets]);
+
+    useEffect(() => {
+        requestCurrentPage(LIMIT, currentPage);
+    }, [currentPage, requestCurrentPage, requestGetAssets]);
+
+    const onRetry = useCallback(() => {
+        requestCurrentPage(LIMIT, currentPage);
+    }, [currentPage, requestCurrentPage]);
 
     return (
         <div 
             className={[
                 'flex', 
                 'flex-col', 
-                'gap-6', 
-                'rounded-lg', 
-                'border', 
-                'border-neutral-300', 
-                'w-full', 
-                ['bg-neutral-100', 'dark:bg-neutral-600'].join(' ')]
+                'gap-6',
+                'w-full']
                 .join(' ')
             }
         >
-            <TrackerTable assets={FAKE_ASSETS} />
-            <TrackerPagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
+
+            { shouldShowLoading && (
+                <h1>Loading...</h1>
+            )}
+
+            { shouldShowTable && (
+                <div 
+                    className={[
+                        'rounded-lg', 
+                        'border', 
+                        'border-neutral-300', 
+                        ['bg-neutral-100', 'dark:bg-neutral-600'].join(' ')]
+                        .join(' ')
+                    }
+                >
+                    <TrackerTable assets={assets} />
+                    <TrackerPagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={TOTAL_PAGES} />
+                </div>
+            )}
+
+            { shouldShowNoResults && (
+                <NoResults onRetry={onRetry} />
+            )}
+			
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover={false}
+                theme="light"
+            />
         </div>
-
-
     );
 }
