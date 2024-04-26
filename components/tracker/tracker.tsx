@@ -46,7 +46,7 @@ export default function Tracker() {
         >
 
             { shouldShowLoading && (
-                <h1>Loading...</h1>
+                <h1 data-testid="tracker-loading">Loading...</h1>
             )}
 
             { shouldShowTable && (

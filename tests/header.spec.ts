@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { LARGE_SCREEN, SMALL_SCREEN } from 'tests/utils';
+import { LARGE_SCREEN, SMALL_SCREEN } from '@tests/utils';
 
 test.describe('Header: ', () => {
     test('should render menu for large screens', async ({ page }) => {

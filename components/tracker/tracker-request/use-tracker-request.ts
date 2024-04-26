@@ -12,6 +12,7 @@ interface TrackerRequestResult {
 
 export const useTrackerRequest = (): TrackerRequestResult => {
 
+    const ONE = 1;
     const [assets, setAssets] = useState<Asset[]>([]);
     const [isRequesting, setIsRequesting] = useState<boolean>(true);
     const requestErrorAlertId = useRef<Id | null>(null);
@@ -49,7 +50,7 @@ export const useTrackerRequest = (): TrackerRequestResult => {
     }, [handleRequestFail, handleRequestSuccess]);
 
     const requestCurrentPage = useCallback((limit: number, currentPage: number) => {
-        const offset = limit * (currentPage - 1);
+        const offset = limit * (currentPage - ONE);
         requestGetAssets(offset);
     }, [requestGetAssets]);
 

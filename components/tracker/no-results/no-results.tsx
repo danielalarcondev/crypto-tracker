@@ -15,7 +15,7 @@ export default function NoResults({ onRetry }: NoResultsProps) {
 	  };
 
     return (
-        <div className={[
+        <div data-testid="assents-no-results" className={[
             'w-[26rem]',
             'h-32',
             'bg-red-300',
@@ -23,7 +23,7 @@ export default function NoResults({ onRetry }: NoResultsProps) {
             'p-6'
         	].join(' ')}
         >
-            <h1 className={[
+            <h1 data-testid="assents-no-results-message" className={[
                 'text-md',
                 'mb-4'
             	].join(' ')}
@@ -31,10 +31,10 @@ export default function NoResults({ onRetry }: NoResultsProps) {
 				No results. Would you like to try again?
             </h1>
             <Flowbite theme={{ theme: customTheme }}>
-                <Button onClick={onRetry} fullSized color="primary">
+                <Button data-testid="assets-no-results-retry-button" onClick={onRetry} fullSized color="primary">
 					Retry 
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 ml-2 flex self-center">
-                    	<path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 ml-2 flex self-center">
+                    	<path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
                 	</svg>
                 </Button>
             </Flowbite>

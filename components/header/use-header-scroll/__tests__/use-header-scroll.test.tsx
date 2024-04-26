@@ -23,7 +23,7 @@ const scrollUp = () => {
 };
 
 
-describe('Use Header Scroll: ', () => {
+describe('useHeaderScroll: ', () => {
     it('should return correct values first on scroll down and then on scroll up', async () => {
 		
         jest.useFakeTimers();
