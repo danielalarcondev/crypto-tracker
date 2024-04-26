@@ -1,4 +1,6 @@
 import { GetAssetsPayload } from '@common-types/assets';
+import { Page } from '@playwright/test';
+import { mockedAssets } from '@tests/utils';
 
 export const ASSETS_ENDPOINT = 'https://api.coincap.io/v2/assets';
 export const DEFAULT_ASSETS_LIMIT = 100;
@@ -28,4 +30,16 @@ export const prepareAssetsUrl = (params: GetAssetsPayload): string | null => {
         return null;
     }
     
+};
+
+export const mockAssetsRequest = async (page: Page) => {
+    const mockedResponse = {
+        data: mockedAssets,
+        timestamp: Date.now(),
+    };
+	
+    await page.route(ASSETS_ENDPOINT, (route: { fulfill: (arg0: { status: number; body: string; }) => any; }) => route.fulfill({
+        status: 200,
+        body: JSON.stringify(mockedResponse),
+    }));
 };

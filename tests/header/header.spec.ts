@@ -1,7 +1,13 @@
-import { expect, test } from '@playwright/test';
-import { LARGE_SCREEN, SMALL_SCREEN } from '@tests/utils';
+import { Page, expect, test } from '@playwright/test';
+import { ASSETS_ENDPOINT, mockAssetsRequest } from '@services/assets/utils';
+import { LARGE_SCREEN, SMALL_SCREEN, mockedAssets } from '@tests/utils';
 
 test.describe('Header: ', () => {
+
+    test.beforeEach(({ page }) => {
+        mockAssetsRequest(page);
+    });
+
     test('should render menu for large screens', async ({ page }) => {
 
         await page.setViewportSize(LARGE_SCREEN);
