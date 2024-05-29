@@ -13,10 +13,6 @@
 		"typescriptreact"
 	],
 	"css.customData": [".vscode/css_custom_data.json"],
-	"cSpell.words": [
-		"flowbite",
-		"testid",
-		"toastify"
-	],
+	"cSpell.words": ["flowbite", "testid", "toastify", "vwap"],
 	"typescript.preferences.importModuleSpecifier": "non-relative"
 }
