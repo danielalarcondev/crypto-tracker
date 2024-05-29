@@ -23,7 +23,7 @@ export default function TrackerPagination({ currentPage, setCurrentPage, totalPa
         <div 
             data-testid="tracker-pagination"
             className={[
-                'mb-6',
+                'my-6',
                 'mx-auto',
                 'w-56 sm:w-[32rem]',
                 'min-h-10'].join(' ')

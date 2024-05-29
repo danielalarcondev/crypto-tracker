@@ -204,7 +204,7 @@ exports[`TrackerPage:  should render correctly 1`] = `
         </div>
       </div>
       <div
-        class="mb-6 mx-auto w-56 sm:w-[32rem] min-h-10"
+        class="my-6 mx-auto w-56 sm:w-[32rem] min-h-10"
         data-testid="tracker-pagination"
       >
         <ul
