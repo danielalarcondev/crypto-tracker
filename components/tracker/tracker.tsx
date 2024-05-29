@@ -35,7 +35,8 @@ export default function Tracker() {
     }, [currentPage, requestCurrentPage]);
 
     return (
-        <div 
+        <div
+            data-testid="tracker"
             className={[
                 'flex', 
                 'flex-col', 
