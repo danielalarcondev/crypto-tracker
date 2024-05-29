@@ -151,7 +151,7 @@
 		"no-return-assign": "warn",
 		"no-script-url": "warn",
 		"no-sequences": "warn",
-		"no-shadow": "warn",
+		"no-shadow": "off",
 		"no-shadow-restricted-names": "warn",
 		"no-throw-literal": "warn",
 		"no-unneeded-ternary": "warn",
