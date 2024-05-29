@@ -7,8 +7,7 @@ const config: Config = {
         './app/**/*.{js,ts,jsx,tsx,mdx}',
         './components/**/*.{js,ts,jsx,tsx,mdx}',
         './utils/**/*.{js,ts,jsx,tsx,mdx}',
-        './common-types/**/*.{js,ts,jsx,tsx,mdx}',
-        'node_modules/flowbite-react/lib/esm/**/*.js',
+        'node_modules/flowbite-react/lib/esm/**/*.js'
     ],
     darkMode: 'selector',
     plugins: [

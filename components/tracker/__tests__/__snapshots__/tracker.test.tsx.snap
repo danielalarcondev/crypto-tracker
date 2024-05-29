@@ -1,0 +1,403 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackerPage:  should render correctly 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-6 w-full"
+    data-testid="tracker"
+  >
+    <div
+      class="rounded-lg border border-neutral-300 bg-neutral-100 dark:bg-neutral-600"
+    >
+      <div
+        class="overflow-x-auto rounded-lg"
+        data-testid="tracker-table"
+      >
+        <div
+          class="relative"
+          data-testid="table-element"
+        >
+          <div
+            class="absolute left-0 top-0 -z-10 h-full w-full drop-shadow-md dark:bg-neutral-950"
+          />
+          <table
+            class="w-full text-left text-sm text-neutral-500 dark:text-neutral-400"
+          >
+            <thead
+              class="group/head text-xs uppercase text-neutral-700 dark:text-neutral-100"
+            >
+              <tr>
+                <th
+                  class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden xl:table-cell w-24"
+                >
+                  #
+                </th>
+                <th
+                  class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 w-fit"
+                >
+                  Name
+                </th>
+                <th
+                  class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 w-32"
+                >
+                  Price
+                </th>
+                <th
+                  class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden xs:table-cell w-32"
+                >
+                  24h %
+                </th>
+                <th
+                  class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden xl:table-cell w-32"
+                >
+                  Market cap
+                </th>
+                <th
+                  class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden lg:table-cell w-32"
+                >
+                  Supply
+                </th>
+                <th
+                  class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden sm:table-cell w-32"
+                >
+                  Volume 24h
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="group/body dark:text-neutral-200 divide-y"
+            >
+              <tr
+                class="group/row bg-white dark:bg-neutral-800"
+                data-testid="table-row-element"
+              >
+                <td
+                  class="md:px-6 neutral-50 dark:bg-neutral-800 p-4 w-24 hidden xl:table-cell"
+                >
+                  1
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 flex w-fit max-w-32 gap-2 whitespace-nowrap font-medium text-gray-900 dark:text-white"
+                >
+                  <img
+                    alt="icon"
+                    class="w-8 h-8"
+                    data-nimg="1"
+                    data-testid="tracker-table-name-image"
+                    decoding="async"
+                    height="32"
+                    loading="lazy"
+                    src="http://localhost/_next/image?url=https%3A%2F%2Fassets.coincap.io%2Fassets%2Ficons%2Fbtc%402x.png&w=64&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fassets.coincap.io%2Fassets%2Ficons%2Fbtc%402x.png&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fassets.coincap.io%2Fassets%2Ficons%2Fbtc%402x.png&w=64&q=75 2x"
+                    style="color: transparent;"
+                    width="32"
+                  />
+                  <div
+                    class="flex flex-col self-center"
+                  >
+                    <span
+                      class="font-bold"
+                    >
+                      Bitcoin
+                    </span>
+                    <small
+                      class="text-neutral-400 pl-0.5"
+                    >
+                      BTC
+                    </small>
+                  </div>
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 w-32"
+                >
+                  $6.93K
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xs:table-cell w-32"
+                >
+                  -0.81%
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
+                >
+                  119.15B
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden lg:table-cell w-32"
+                >
+                  17.19M
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden sm:table-cell w-32"
+                >
+                  2.93B
+                </td>
+              </tr>
+              <tr
+                class="group/row bg-white dark:bg-neutral-800"
+                data-testid="table-row-element"
+              >
+                <td
+                  class="md:px-6 neutral-50 dark:bg-neutral-800 p-4 w-24 hidden xl:table-cell"
+                >
+                  2
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 flex w-fit max-w-32 gap-2 whitespace-nowrap font-medium text-gray-900 dark:text-white"
+                >
+                  <img
+                    alt="icon"
+                    class="w-8 h-8"
+                    data-nimg="1"
+                    data-testid="tracker-table-name-image"
+                    decoding="async"
+                    height="32"
+                    loading="lazy"
+                    src="http://localhost/_next/image?url=https%3A%2F%2Fassets.coincap.io%2Fassets%2Ficons%2Feth%402x.png&w=64&q=75"
+                    srcset="/_next/image?url=https%3A%2F%2Fassets.coincap.io%2Fassets%2Ficons%2Feth%402x.png&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fassets.coincap.io%2Fassets%2Ficons%2Feth%402x.png&w=64&q=75 2x"
+                    style="color: transparent;"
+                    width="32"
+                  />
+                  <div
+                    class="flex flex-col self-center"
+                  >
+                    <span
+                      class="font-bold"
+                    >
+                      Ethereum
+                    </span>
+                    <small
+                      class="text-neutral-400 pl-0.5"
+                    >
+                      ETH
+                    </small>
+                  </div>
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 w-32"
+                >
+                  $404.98
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xs:table-cell w-32"
+                >
+                  -0.10%
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
+                >
+                  40.97B
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden lg:table-cell w-32"
+                >
+                  101.16M
+                </td>
+                <td
+                  class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden sm:table-cell w-32"
+                >
+                  1.03B
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        class="mb-6 mx-auto w-56 sm:w-[32rem] min-h-10"
+        data-testid="tracker-pagination"
+      >
+        <ul
+          class="inline-flex w-full justify-center hidden"
+        >
+          <li
+            class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10 disabled border-none text-3xl navigation-span-pointer hover:scale-110"
+          >
+            <span
+              aria-label="Previous"
+              class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+            >
+              <span
+                aria-hidden="true"
+              >
+                «
+              </span>
+            </span>
+          </li>
+          <li
+            aria-current="page"
+            class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10 bg-primary-500 hover:!bg-primary-500 text-white"
+          >
+            <a
+              class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+              href="#"
+            >
+              1
+            </a>
+          </li>
+          <li
+            class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10"
+          >
+            <a
+              class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+              href="#"
+            >
+              2
+            </a>
+          </li>
+          <li
+            aria-hidden="true"
+            class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10 disabled"
+          >
+            <span
+              class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+            >
+              …
+            </span>
+          </li>
+          <li
+            class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10"
+          >
+            <a
+              class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+              href="#"
+            >
+              23
+            </a>
+          </li>
+          <li
+            class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10 border-none text-3xl navigation-span-pointer hover:scale-110"
+          >
+            <a
+              aria-label="Next"
+              class="w-full h-full flex justify-center content-center flex-wrap shrink-0"
+              href="#"
+            >
+              <span
+                aria-hidden="true"
+              >
+                »
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="Toastify"
+    />
+  </div>
+</div>
+`;
+
+exports[`TrackerPage:  should render error page if service returns no assets 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-6 w-full"
+    data-testid="tracker"
+  >
+    <div
+      class="w-[26rem] h-32 bg-red-300 rounded-md p-6"
+      data-testid="assents-no-results"
+    >
+      <h1
+        class="text-md mb-4"
+        data-testid="assents-no-results-message"
+      >
+        No results. Would you like to try again?
+      </h1>
+      <button
+        class="group relative flex items-stretch justify-center p-0.5 text-center font-medium transition-[color,background-color,border-color,text-decoration-color,fill,stroke,box-shadow] focus:z-10 focus:outline-none bg-blue-500/80 hover:bg-blue-500 border border-white text-white rounded-lg w-full"
+        data-testid="assets-no-results-retry-button"
+        type="button"
+      >
+        <span
+          class="flex items-stretch transition-all duration-200 rounded-md px-4 py-2 text-sm"
+        >
+          Retry
+          <svg
+            class="w-4 h-4 ml-2 flex self-center"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <div
+      class="Toastify"
+    >
+      <div
+        class="Toastify__toast-container Toastify__toast-container--top-center"
+      >
+        <div
+          class="Toastify__toast Toastify__toast-theme--light Toastify__toast--error Toastify--animate Toastify__bounce-enter--top-center"
+          data-in="true"
+          id="[object Object]"
+        >
+          <div
+            class="Toastify__toast-body"
+            role="alert"
+          >
+            <div
+              class="Toastify__toast-icon Toastify--animate-icon Toastify__zoom-enter"
+            >
+              <svg
+                fill="var(--toastify-icon-color-error)"
+                height="100%"
+                viewBox="0 0 24 24"
+                width="100%"
+              >
+                <path
+                  d="M11.983 0a12.206 12.206 0 00-8.51 3.653A11.8 11.8 0 000 12.207 11.779 11.779 0 0011.8 24h.214A12.111 12.111 0 0024 11.791 11.766 11.766 0 0011.983 0zM10.5 16.542a1.476 1.476 0 011.449-1.53h.027a1.527 1.527 0 011.523 1.47 1.475 1.475 0 01-1.449 1.53h-.027a1.529 1.529 0 01-1.523-1.47zM11 12.5v-6a1 1 0 012 0v6a1 1 0 11-2 0z"
+                />
+              </svg>
+            </div>
+            <div>
+              Custom error
+            </div>
+          </div>
+          <button
+            aria-label="close"
+            class="Toastify__close-button Toastify__close-button--light"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 14 16"
+            >
+              <path
+                d="M7.71 8.23l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75L1 11.98l3.75-3.75L1 4.48 2.48 3l3.75 3.75L9.98 3l1.48 1.48-3.75 3.75z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <div
+            class="Toastify__progress-bar--wrp"
+            data-hidden="false"
+          >
+            <div
+              class="Toastify__progress-bar--bg Toastify__progress-bar-theme--light Toastify__progress-bar--error"
+            />
+            <div
+              aria-hidden="false"
+              aria-label="notification timer"
+              class="Toastify__progress-bar Toastify__progress-bar--animated Toastify__progress-bar-theme--light Toastify__progress-bar--error"
+              role="progressbar"
+              style="animation-duration: 2000ms; animation-play-state: paused;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,3 +1,4 @@
+import { HttpError } from '@common-types/error';
 
 export interface Asset {
 	id: string,
@@ -30,6 +31,7 @@ export interface GetAssetsPayload {
 }
 
 export interface GetAssetsResponse {
-	data: Asset[], 
-	timestamp: number
+	data: Asset[],
+	timestamp: number,
+	error?: HttpError
 }

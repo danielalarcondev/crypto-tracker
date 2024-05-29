@@ -4,16 +4,15 @@
 	"editor.formatOnSave": true,
 	"editor.detectIndentation": false,
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit",
+		"source.fixAll.eslint": "explicit"
 	},
 	"eslint.validate": [
-		"javascript", "typescript", "javascriptreact", "typescriptreact"
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact"
 	],
-	"css.customData": [
-		".vscode/css_custom_data.json"
-	],
-	"cSpell.words": [
-		"flowbite"
-	],
+	"css.customData": [".vscode/css_custom_data.json"],
+	"cSpell.words": ["flowbite", "toastify"],
 	"typescript.preferences.importModuleSpecifier": "non-relative"
 }

@@ -35,6 +35,7 @@ describe('TrackerPage: ', () => {
 
     it('should render proper amount of pages', async () => {
 
+        const TWO = 2;
         const setCurrentPageMock = jest.fn();
         const totalPages = 50;
 
@@ -42,7 +43,7 @@ describe('TrackerPage: ', () => {
 
         const button50 = await screen.findByText(totalPages);
         const ul = button50.parentElement?.parentElement;
-        const penultimateUlChild = ul?.children[ul?.children.length - 2];
+        const penultimateUlChild = ul?.children[ul?.children.length - TWO];
 
         expect(penultimateUlChild?.firstChild).toHaveTextContent(totalPages.toString());
     });
