@@ -1,6 +1,6 @@
 import { Asset, GetAssetsResponse } from '@common-types/assets';
 import { getAssets } from '@services/assets';
-import { useCallback, useRef, useState } from 'react';
+import { RefObject, useCallback, useRef, useState } from 'react';
 import { Id, toast } from 'react-toastify';
 
 interface TrackerRequestResult {
@@ -10,7 +10,9 @@ interface TrackerRequestResult {
 	requestCurrentPage: (limit: number, currentPage: number) => void
 }
 
-export const useTrackerRequest = (): TrackerRequestResult => {
+const TABLE_TOP_MARGIN = 80;
+
+export const useTrackerRequest = (ref: RefObject<HTMLDivElement>): TrackerRequestResult => {
 
     const ONE = 1;
     const [assets, setAssets] = useState<Asset[]>([]);
@@ -35,9 +37,18 @@ export const useTrackerRequest = (): TrackerRequestResult => {
         }
     }, []);
 
+    const scrollToTopOfTable = useCallback(() => {
+        if ( ref?.current?.offsetTop) {
+            window.scrollTo({ top: ref.current.offsetTop  - TABLE_TOP_MARGIN, behavior: 'smooth'});
+        }
+    }, [ref]);
+
     const requestGetAssets = useCallback(async (offset: number) => {
         
+        setAssets([]);
         setIsRequesting(true);
+        scrollToTopOfTable();
+		
         const response = await getAssets({ offset });
 
         if (response.error) {
@@ -47,7 +58,7 @@ export const useTrackerRequest = (): TrackerRequestResult => {
         }
 
         setIsRequesting(false);
-    }, [handleRequestFail, handleRequestSuccess]);
+    }, [handleRequestFail, handleRequestSuccess, scrollToTopOfTable]);
 
     const requestCurrentPage = useCallback((limit: number, currentPage: number) => {
         const offset = limit * (currentPage - ONE);

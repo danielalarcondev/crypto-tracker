@@ -6,162 +6,166 @@ import TrackerAssetRankCell from '@components/tracker/tracker-table/tracker-asse
 import TrackerTableRow from '@components/tracker/tracker-table/tracker-table-row/tracker-table-row';
 import { formatLargeNumber, formatPercentageNumber } from '@utils/format';
 import { Table, TableBody, TableHead, TableHeadCell } from 'flowbite-react';
+import { RefObject, forwardRef } from 'react';
 
 export interface TrackerTableProps {
 	assets: Asset[]
 }
 
-export default function TrackerTable({ assets }: TrackerTableProps) {
-    return (
-        <div
-            data-testid="tracker-table"
-            className={[
-                'overflow-x-auto',
-                'rounded-lg'
-            ].join(' ')
-            }
-        >
-            <Table theme={tableTheme}>
-                <TableHead>
+const TrackerTable = forwardRef<HTMLDivElement, TrackerTableProps>(({ assets }, ref ) => (
+    <div
+        ref={ref}
+        data-testid="tracker-table"
+        className={[
+            'overflow-x-auto',
+            'rounded-lg'
+        ].join(' ')
+        }
+    >
+        <Table theme={tableTheme}>
+            <TableHead>
 
-                    <TableHeadCell 
-                        className={[
-                            'hidden xl:table-cell', 
-                            'w-24'
-                        ].join(' ')
-                        }
-                    >
-						#
-                    </TableHeadCell>
-
-                    <TableHeadCell 
-                        className={[
-                            'w-fit'
-                        ].join(' ')
-                        }
-                    >
-						Name
-                    </TableHeadCell>
-					
-                    <TableHeadCell 
-                        className={[
-                            'w-32'
-                        ].join(' ')
-                        }
-                    >
-						Price
-                    </TableHeadCell>
-                    
-                    <TableHeadCell 
-                        className={[
-                            'hidden xs:table-cell', 
-                            'w-32'
-                        ].join(' ')
-                        }
-                    >
-						24h %
-                    </TableHeadCell>
-                    
-                    <TableHeadCell 
-                        className={[
-                            'hidden xl:table-cell', 
-                            'w-32'
-                        ].join(' ')
-                        }
-                    >
-						Market cap
-                    </TableHeadCell>
-                    
-                    <TableHeadCell 
-                        className={[
-                            'hidden lg:table-cell', 
-                            'w-32'
-                        ].join(' ')
-                        }
-                    >
-						Supply
-                    </TableHeadCell>
-                    
-                    <TableHeadCell 
-                        className={[
-                            'hidden sm:table-cell', 
-                            'w-32'
-                        ].join(' ')
-                        }
-                    >
-						Volume 24h
-                    </TableHeadCell>
-
-                </TableHead>
-
-                <TableBody 
+                <TableHeadCell 
                     className={[
-                        'divide-y'
-                    	].join(' ')
+                        'hidden xl:table-cell', 
+                        'w-24'
+                    ].join(' ')
                     }
                 >
-                    { assets.map((asset) => (
-                        <TrackerTableRow key={asset.id}>
-                            
-                            <TrackerAssetRankCell>
-                                {asset.rank}
-                            </TrackerAssetRankCell>
-							
-                            <TrackerAssetNameCell name={asset.name} symbol={asset.symbol} id={asset.id} />
+						#
+                </TableHeadCell>
 
-                            <TrackerAssetCell 
-                                className={[
-                                    'w-32'
-                                ].join(' ')
-                                }
-                            >
-                                {`$${formatLargeNumber(asset.priceUsd)}`}
-                            </TrackerAssetCell>
-
-                            <TrackerAssetCell 
-                                className={[
-                                    'hidden xs:table-cell', 
-                                    'w-32'
-                                ].join(' ')
-                                }
-                            >
-                                {formatPercentageNumber(asset.changePercent24Hr)}
-                            </TrackerAssetCell>
-                            
-                            <TrackerAssetCell 
-                                className={[
-                                    'hidden xl:table-cell', 
-                                    'w-32'
-                                ].join(' ')
-                                }
-                            >
-                                {formatLargeNumber(asset.marketCapUsd)}
-                            </TrackerAssetCell>
-                            
-                            <TrackerAssetCell 
-                                className={[
-                                    'hidden lg:table-cell', 'w-32'
-                                ].join(' ')
-                                }
-                            >
-                                {formatLargeNumber(asset.supply)}
-                            </TrackerAssetCell>
-                            
-                            <TrackerAssetCell 
-                                className={[
-                                    'hidden sm:table-cell', 
-                                    'w-32'
-                                ].join(' ')
-                                }
-                            >
-                                {formatLargeNumber(asset.volumeUsd24Hr)}
-                            </TrackerAssetCell>
-
-                        </TrackerTableRow>
-                    ))}
+                <TableHeadCell 
+                    className={[
+                        'w-fit'
+                    ].join(' ')
+                    }
+                >
+						Name
+                </TableHeadCell>
 					
-                </TableBody>
-            </Table>
-        </div>
-    );
-}
+                <TableHeadCell 
+                    className={[
+                        'w-32'
+                    ].join(' ')
+                    }
+                >
+						Price
+                </TableHeadCell>
+                    
+                <TableHeadCell 
+                    className={[
+                        'hidden xs:table-cell', 
+                        'w-32'
+                    ].join(' ')
+                    }
+                >
+						24h %
+                </TableHeadCell>
+                    
+                <TableHeadCell 
+                    className={[
+                        'hidden xl:table-cell', 
+                        'w-32'
+                    ].join(' ')
+                    }
+                >
+						Market cap
+                </TableHeadCell>
+                    
+                <TableHeadCell 
+                    className={[
+                        'hidden lg:table-cell', 
+                        'w-32'
+                    ].join(' ')
+                    }
+                >
+						Supply
+                </TableHeadCell>
+                    
+                <TableHeadCell 
+                    className={[
+                        'hidden sm:table-cell', 
+                        'w-32'
+                    ].join(' ')
+                    }
+                >
+						Volume 24h
+                </TableHeadCell>
+
+            </TableHead>
+
+            <TableBody 
+                className={[
+                    'divide-y'
+                    	].join(' ')
+                }
+            >
+                { assets.map((asset) => (
+                    <TrackerTableRow key={asset.id}>
+                            
+                        <TrackerAssetRankCell>
+                            {asset.rank}
+                        </TrackerAssetRankCell>
+							
+                        <TrackerAssetNameCell name={asset.name} symbol={asset.symbol} id={asset.id} />
+
+                        <TrackerAssetCell 
+                            className={[
+                                'w-32'
+                            ].join(' ')
+                            }
+                        >
+                            {`$${formatLargeNumber(asset.priceUsd)}`}
+                        </TrackerAssetCell>
+
+                        <TrackerAssetCell 
+                            className={[
+                                'hidden xs:table-cell', 
+                                'w-32'
+                            ].join(' ')
+                            }
+                        >
+                            {formatPercentageNumber(asset.changePercent24Hr)}
+                        </TrackerAssetCell>
+                            
+                        <TrackerAssetCell 
+                            className={[
+                                'hidden xl:table-cell', 
+                                'w-32'
+                            ].join(' ')
+                            }
+                        >
+                            {formatLargeNumber(asset.marketCapUsd)}
+                        </TrackerAssetCell>
+                            
+                        <TrackerAssetCell 
+                            className={[
+                                'hidden lg:table-cell', 'w-32'
+                            ].join(' ')
+                            }
+                        >
+                            {formatLargeNumber(asset.supply)}
+                        </TrackerAssetCell>
+                            
+                        <TrackerAssetCell 
+                            className={[
+                                'hidden sm:table-cell', 
+                                'w-32'
+                            ].join(' ')
+                            }
+                        >
+                            {formatLargeNumber(asset.volumeUsd24Hr)}
+                        </TrackerAssetCell>
+
+                    </TrackerTableRow>
+                ))}
+					
+            </TableBody>
+        </Table>
+    </div>
+));
+
+TrackerTable.displayName = 'TrackerTable';
+
+export default TrackerTable;
