@@ -4,7 +4,7 @@ import NoResults from '@components/tracker/no-results/no-results';
 import TrackerPagination from '@components/tracker/tracker-pagination/tracker-pagination';
 import { useTrackerRequest } from '@components/tracker/tracker-request/use-tracker-request';
 import TrackerTable from '@components/tracker/tracker-table/tracker-table';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 const INITIAL_PAGE = 1;
@@ -15,10 +15,12 @@ const TOTAL_PAGES = Math.ceil(MAX_AMOUNT_ASSETS / LIMIT);
 
 export default function Tracker() {
 
-    const [currentPage, setCurrentPage] = useState(INITIAL_PAGE);
-    const { assets, requestGetAssets, requestCurrentPage, isRequesting } = useTrackerRequest();
+    const tableRef = useRef<HTMLDivElement>(null);
 
-    const shouldShowLoading = isRequesting;
+    const [currentPage, setCurrentPage] = useState(INITIAL_PAGE);
+    const { assets, requestGetAssets, requestCurrentPage, isRequesting } = useTrackerRequest(tableRef);
+
+    const shouldShowLoading = isRequesting && !assets?.length;
     const shouldShowTable = Boolean(assets.length);
     const shouldShowNoResults = !assets.length && !isRequesting;
 
@@ -60,7 +62,7 @@ export default function Tracker() {
                         .join(' ')
                     }
                 >
-                    <TrackerTable assets={assets} />
+                    <TrackerTable ref={tableRef} assets={assets} />
                     <TrackerPagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={TOTAL_PAGES} />
                 </div>
             )}
