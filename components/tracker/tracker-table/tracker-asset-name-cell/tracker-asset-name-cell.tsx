@@ -1,25 +1,47 @@
 'use client';
 
-import React, { SyntheticEvent } from 'react';
+import React, { SyntheticEvent, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 import { TableCell } from 'flowbite-react';
+import { getAssetIconUrl } from '../../../../services/assets/assets';
 
 interface TrackerAssetNameCellProps {
 	name: string;
 	symbol: string;
+	id: string;
 }
 
-export const defaultNameCelltUrl = '/logo.svg';
+export const defaultAssetIconUrl = '/logo.svg';
+export const loadingAssetIconUrl = '/loading-icon.png';
 
-export default function TrackerAssetNameCell({ name, symbol }: TrackerAssetNameCellProps) {
+export default function TrackerAssetNameCell({ name, symbol, id }: TrackerAssetNameCellProps) {
 
-    const iconUrl = `https://assets.coincap.io/assets/icons/${symbol.toLocaleLowerCase()}@2x.png`;
-
+    const [assetIconUrl, setAssetIconUrl] = useState<string | null>(null);
+    const isFirstImageError = useRef(true);
+	
     const onImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
-        (event.target as HTMLImageElement).src = defaultNameCelltUrl;
+
+        if (isFirstImageError.current) {
+
+            getAssetIconUrl(id).then((url) => {
+                setAssetIconUrl(url);
+            });
+
+            isFirstImageError.current = false;
+        }
+
+
+        setAssetIconUrl(defaultAssetIconUrl);
         (event.target as HTMLImageElement).removeAttribute('srcset');
     };
+	
+    useEffect(() => {
+        getAssetIconUrl(symbol).then((url) => {
+            setAssetIconUrl(url);
+        });
+    }, [symbol]);
+
 
     return (
         <TableCell 
@@ -38,7 +60,7 @@ export default function TrackerAssetNameCell({ name, symbol }: TrackerAssetNameC
                 data-testid="tracker-table-name-image"
                 width={32}
                 height={32}
-                src={iconUrl}
+                src={assetIconUrl ? assetIconUrl : loadingAssetIconUrl}
                 alt="icon"
                 onError={onImageError}
                 className={[

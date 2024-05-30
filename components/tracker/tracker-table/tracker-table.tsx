@@ -107,7 +107,7 @@ export default function TrackerTable({ assets }: TrackerTableProps) {
                                 {asset.rank}
                             </TrackerAssetRankCell>
 							
-                            <TrackerAssetNameCell name={asset.name} symbol={asset.symbol} />
+                            <TrackerAssetNameCell name={asset.name} symbol={asset.symbol} id={asset.id} />
 
                             <TrackerAssetCell 
                                 className={[

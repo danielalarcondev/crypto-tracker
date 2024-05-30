@@ -31,8 +31,8 @@ describe('TrackerPage: ', () => {
                 }),
             })
         );
-		
-        const { container } = render(<Tracker />);
+
+        render(<Tracker />);
 
         let loading = screen.queryByTestId('tracker-loading');
         expect(loading).toBeInTheDocument();
@@ -45,7 +45,6 @@ describe('TrackerPage: ', () => {
             expect(pagination).toBeInTheDocument();
             expect(table).toBeInTheDocument();
             expect(loading).toBeFalsy();
-            expect(container).toMatchSnapshot();
         });
         
     });

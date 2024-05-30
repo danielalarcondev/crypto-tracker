@@ -1,8 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { LARGE_SCREEN } from '@tests/utils';
 
-const REQUEST_TIMEOUT = 1000;
-
 test.describe('Tracker: ', () => {
 
     test('should load tracker correctly', async ({ page }) => {
@@ -35,7 +33,9 @@ test.describe('Tracker: ', () => {
         const page2Button = trackerPagination.getByText('2', { exact: true });
        	
         await page2Button.click();
-        await page.waitForTimeout(REQUEST_TIMEOUT);
-        await expect(initialTable).not.toStrictEqual(await trackerTable.textContent());
+
+        await expect(async () => {
+            await expect(initialTable).not.toStrictEqual(await trackerTable.textContent());
+        }).toPass();
     });
 });
