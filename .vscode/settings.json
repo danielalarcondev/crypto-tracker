@@ -14,9 +14,20 @@
 	],
 	"css.customData": [".vscode/css_custom_data.json"],
 	"cSpell.words": [
+		"bttold",
+		"chsb",
 		"flowbite",
+		"lunc",
+		"miota",
+		"mrph",
+		"poolx",
+		"poolz",
 		"testid",
-		"toastify"
+		"toastify",
+		"tomo",
+		"ustc",
+		"vwap",
+		"xend"
 	],
 	"typescript.preferences.importModuleSpecifier": "non-relative"
 }

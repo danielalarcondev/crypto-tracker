@@ -1,6 +1,6 @@
 import { HttpError } from '@common-types/error';
 
-export interface Asset {
+export interface CoinCapAsset {
 	id: string,
 	rank: string,
 	symbol: string,
@@ -14,24 +14,15 @@ export interface Asset {
 	vwap24Hr: string
 }
 
-export interface GetAssetPayload {
-	id: string
-}
-
-export interface GetAssetResponse {
-	data: Asset, 
+export interface GetCoinCapAssetResponse {
+	data: CoinCapAsset[], 
 	timestamp: number
+	error?: HttpError
 }
 
-export interface GetAssetsPayload {
+export interface GetCoinCapAssetsPayload {
 	search?: string,
 	ids?: string[],
 	limit?: number,
 	offset?: number
-}
-
-export interface GetAssetsResponse {
-	data: Asset[],
-	timestamp: number,
-	error?: HttpError
 }
