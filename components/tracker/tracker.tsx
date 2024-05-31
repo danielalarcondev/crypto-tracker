@@ -6,9 +6,10 @@ import { useTrackerRequest } from '@components/tracker/tracker-request/use-track
 import TrackerTable from '@components/tracker/tracker-table/tracker-table';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
+import TrackerTableSkeleton from '@components/tracker/tracker-table/tracker-table-skeleton';
 
 const INITIAL_PAGE = 1;
-const LIMIT = 100;
+const LIMIT = 50;
 const INITIAL_OFFSET = 0;
 const MAX_AMOUNT_ASSETS = 2296;
 const TOTAL_PAGES = Math.ceil(MAX_AMOUNT_ASSETS / LIMIT);
@@ -25,7 +26,7 @@ export default function Tracker() {
     const shouldShowNoResults = !assets.length && !isRequesting;
 
     useEffect(() => {
-        requestGetAssets(INITIAL_OFFSET);
+        requestGetAssets(LIMIT, INITIAL_OFFSET);
     }, [requestGetAssets]);
 
     useEffect(() => {
@@ -48,24 +49,28 @@ export default function Tracker() {
             }
         >
 
-            { shouldShowLoading && (
-                <h1 data-testid="tracker-loading">Loading...</h1>
-            )}
+            <div 
+                className={[
+                    'rounded-lg', 
+                    'border', 
+                    'border-neutral-300', 
+                    ['bg-neutral-100', 'dark:bg-neutral-600'].join(' ')]
+                    .join(' ')
+                }
+            >
 
-            { shouldShowTable && (
-                <div 
-                    className={[
-                        'rounded-lg', 
-                        'border', 
-                        'border-neutral-300', 
-                        ['bg-neutral-100', 'dark:bg-neutral-600'].join(' ')]
-                        .join(' ')
-                    }
-                >
-                    <TrackerTable ref={tableRef} assets={assets} />
-                    <TrackerPagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={TOTAL_PAGES} />
-                </div>
-            )}
+                { shouldShowLoading && (
+                    <TrackerTableSkeleton recordsNumber={LIMIT} />
+                )}
+				
+                { shouldShowTable && (
+                    <>
+                        <TrackerTable ref={tableRef} assets={assets} />
+                        <TrackerPagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={TOTAL_PAGES} />
+                    </>
+                    
+                )}
+            </div>
 
             { shouldShowNoResults && (
                 <NoResults onRetry={onRetry} />

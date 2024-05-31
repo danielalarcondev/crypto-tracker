@@ -7,6 +7,9 @@ exports[`TrackerPage:  should render error page if service returns no assets 1`]
     data-testid="tracker"
   >
     <div
+      class="rounded-lg border border-neutral-300 bg-neutral-100 dark:bg-neutral-600"
+    />
+    <div
       class="w-[26rem] h-32 bg-red-300 rounded-md p-6"
       data-testid="assents-no-results"
     >
