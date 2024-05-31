@@ -34,17 +34,17 @@ describe('TrackerPage: ', () => {
 
         render(<Tracker />);
 
-        let loading = screen.queryByTestId('tracker-loading');
-        expect(loading).toBeInTheDocument();
+        let skeletonloading = screen.queryByTestId('tracker-table-skeleton');
+        expect(skeletonloading).toBeInTheDocument();
 
         await waitFor(() => {
             const pagination = screen.getByTestId('tracker-pagination');
             const table = screen.getByTestId('tracker-table');
-            loading = screen.queryByTestId('tracker-loading');
+            skeletonloading = screen.queryByTestId('tracker-table-skeleton');
 	
             expect(pagination).toBeInTheDocument();
             expect(table).toBeInTheDocument();
-            expect(loading).toBeFalsy();
+            expect(skeletonloading).toBeFalsy();
         });
         
     });
@@ -64,7 +64,7 @@ describe('TrackerPage: ', () => {
 		
         const { container } = render(<Tracker />);
 
-        let loading = screen.queryByTestId('tracker-loading');
+        let loading = screen.queryByTestId('tracker-table-skeleton');
         let noResultsError = screen.queryByTestId('assents-no-results');
 
         expect(loading).toBeInTheDocument();
@@ -72,7 +72,7 @@ describe('TrackerPage: ', () => {
 
         await waitFor(() => {
             noResultsError = screen.queryByTestId('assents-no-results');
-            loading = screen.queryByTestId('tracker-loading');
+            loading = screen.queryByTestId('tracker-table-skeleton');
 	
             expect(noResultsError).toBeInTheDocument();
             expect(loading).toBeFalsy();

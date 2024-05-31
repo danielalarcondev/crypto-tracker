@@ -5,7 +5,7 @@ import { Id, toast } from 'react-toastify';
 
 interface TrackerRequestResult {
 	assets: Asset[],
-	requestGetAssets:  (offset: number) => Promise<void>,
+	requestGetAssets:  (limit: number, offset: number) => Promise<void>,
 	isRequesting: boolean,
 	requestCurrentPage: (limit: number, currentPage: number) => void
 }
@@ -43,13 +43,13 @@ export const useTrackerRequest = (ref: RefObject<HTMLDivElement>): TrackerReques
         }
     }, [ref]);
 
-    const requestGetAssets = useCallback(async (offset: number) => {
+    const requestGetAssets = useCallback(async (limit: number, offset: number) => {
         
         setAssets([]);
         setIsRequesting(true);
         scrollToTopOfTable();
 		
-        const response = await getAssets({ offset });
+        const response = await getAssets({ limit, offset });
 
         if (response.error) {
             handleRequestFail(response);
@@ -62,7 +62,7 @@ export const useTrackerRequest = (ref: RefObject<HTMLDivElement>): TrackerReques
 
     const requestCurrentPage = useCallback((limit: number, currentPage: number) => {
         const offset = limit * (currentPage - ONE);
-        requestGetAssets(offset);
+        requestGetAssets(limit, offset);
     }, [requestGetAssets]);
 
     return {

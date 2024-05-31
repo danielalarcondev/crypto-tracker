@@ -13,7 +13,7 @@ interface TrackerAssetNameCellProps {
 }
 
 export const defaultAssetIconUrl = '/logo.svg';
-export const loadingAssetIconUrl = '/loading-icon.png';
+export const loadingAssetIconUrl = '/loading-icon.gif';
 
 export default function TrackerAssetNameCell({ name, symbol, id }: TrackerAssetNameCellProps) {
 
