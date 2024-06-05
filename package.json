@@ -26,6 +26,7 @@
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
+	"next-router-mock": "^0.9.13",
     "@jest/globals": "^29.7.0",
     "@playwright/test": "^1.44.1",
     "@testing-library/jest-dom": "^6.4.5",

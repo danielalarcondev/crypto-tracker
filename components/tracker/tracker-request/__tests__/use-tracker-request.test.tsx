@@ -4,18 +4,23 @@ import '@testing-library/jest-dom/jest-globals';
 
 import { waitFor, renderHook, screen, act } from '@testing-library/react';
 import { expect, it, describe } from '@jest/globals';
-import { useTrackerRequest } from '@components/tracker/tracker-request/use-tracker-request';
+import { TABLE_TOP_MARGIN, useTrackerRequest } from '@components/tracker/tracker-request/use-tracker-request';
 import { mockedAssets } from '@tests/utils';
 import { ToastContainer } from 'react-toastify';
 
 describe('useTrackerRequest: ', () => {
     
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-        <div>
-            <ToastContainer />
-            {children}
-        </div>
-	  );
+    const wrapper = ( ref: React.RefObject<HTMLDivElement>) => {
+
+        const component = ({ children }: { children: React.ReactNode }) => (
+            <div ref={ref}>
+                <ToastContainer />
+                {children}
+            </div>
+        );
+
+        return component;
+    };
 
     it('requestGetAssets should set new assets on request succeed', async () => {
         const mockedResponse = {
@@ -23,7 +28,7 @@ describe('useTrackerRequest: ', () => {
             timestamp: Date.now(),
         };
 
-        const offset = 0;
+        const page = 1;
 
         global.fetch = jest.fn(() =>
             Promise.resolve({
@@ -34,13 +39,13 @@ describe('useTrackerRequest: ', () => {
             })
         );
         
-
-        const { result } = renderHook(() => useTrackerRequest(), { wrapper });
+        const ref = React.createRef<HTMLDivElement>();
+        const { result } = renderHook(() => useTrackerRequest(ref), { wrapper: wrapper(ref) } );
     	const { assets, requestGetAssets } = result.current;
 
         expect(assets).toStrictEqual([]);
         act(() => {
-        	requestGetAssets(offset);
+        	requestGetAssets(page);
         });
 
         await waitFor(() => {
@@ -52,7 +57,7 @@ describe('useTrackerRequest: ', () => {
         const errorMessage = 'custom error 354';
         const httpError = 354;
 
-        const offset = 0;
+        const page = 1;
 
         global.fetch = jest.fn(() =>
             Promise.resolve({
@@ -63,11 +68,12 @@ describe('useTrackerRequest: ', () => {
         );
         
 
-        const { result } = renderHook(() => useTrackerRequest(), { wrapper });
+        const ref = React.createRef<HTMLDivElement>();
+        const { result } = renderHook(() => useTrackerRequest(ref), { wrapper: wrapper(ref) });
     	const { requestGetAssets } = result.current;
 
         await act(async () => {
-            await requestGetAssets(offset);
+            await requestGetAssets(page);
         });
 		
         await waitFor(async () => {
@@ -81,7 +87,7 @@ describe('useTrackerRequest: ', () => {
             timestamp: Date.now(),
         };
 
-        const offset = 0;
+        const offset = 1;
 
         global.fetch = jest.fn(() =>
             Promise.resolve({
@@ -92,7 +98,8 @@ describe('useTrackerRequest: ', () => {
             })
         );
         
-        const { result } = renderHook(() => useTrackerRequest(), { wrapper });
+        const ref = React.createRef<HTMLDivElement>();
+        const { result } = renderHook(() => useTrackerRequest(ref), { wrapper: wrapper(ref) });
     	const { requestGetAssets, isRequesting } = result.current;
 
         expect(isRequesting).toBe(true);
@@ -117,63 +124,20 @@ describe('useTrackerRequest: ', () => {
         });
     });
 
-    it('requestCurrentPage should set new assets on request succeed', async () => {
-        const mockedResponse = {
-            data: mockedAssets,
-            timestamp: Date.now(),
-        };
-
-        const offset = 0;
-        const limit = 100;
-
-        global.fetch = jest.fn(() =>
-            Promise.resolve({
-                ok: true,
-                json: () => Promise.resolve({
-                    ...mockedResponse
-                }),
-            })
-        );
-        
-
-        const { result } = renderHook(() => useTrackerRequest(), { wrapper });
-    	const { assets, requestCurrentPage } = result.current;
-
-        expect(assets).toStrictEqual([]);
-        act(() => {
-        	requestCurrentPage(limit, offset);
-        });
-
-        await waitFor(() => {
-            expect(result.current.assets).toStrictEqual(mockedResponse.data);
-        });
-    });
-
-    it('requestGetAssets should notify on  request failure', async () => {
-        const errorMessage = 'custom error 354';
-        const httpError = 354;
-
-        const offset = 0;
-        const limit = 100;
-
-        global.fetch = jest.fn(() =>
-            Promise.resolve({
-                ok: false,
-                statusText: errorMessage,
-                status: httpError
-            })
-        );
-        
-
-        const { result } = renderHook(() => useTrackerRequest(), { wrapper });
-    	const { requestCurrentPage } = result.current;
-
-        await act(async () => {
-            await requestCurrentPage(limit, offset);
-        });
+    it('should scroll to top when loading a new page', () => {
 		
-        await waitFor(async () => {
-            expect(await screen.findByText(errorMessage)).toBeDefined();
+        const scrollToMock = jest.fn();
+        Object.defineProperty(global.window, 'scrollTo', { value: scrollToMock });
+		
+        const ref = React.createRef<HTMLDivElement>();
+        const { result } = renderHook(() => useTrackerRequest(ref), { wrapper: wrapper(ref) });
+        const page = 2;
+
+        act(() => {
+            result.current.requestGetAssets(page);
+            expect(scrollToMock).toHaveBeenCalledWith({ top: (ref.current?.offsetTop ?? 0) - TABLE_TOP_MARGIN, behavior: 'smooth' });
         });
+        
+
     });
 });

@@ -6,3 +6,5 @@ import CoinCapAssetsAdapter from '@services/assets/adapters/coin-cap-assets-adap
 export const getAssets = async ({ search, ids, limit, offset }: GetAssetsPayload): Promise<GetAssetsResponse> => await CoinCapAssetsAdapter.getAssets({ search, ids, limit, offset });
 
 export const getAssetIconUrl = async (symbol: string)  => await CoinCapAssetsAdapter.getCoinCapAssetIconUrl(symbol);
+
+export const getMaxAmountAssets = async ()  => await CoinCapAssetsAdapter.getMaxAmountAssets();

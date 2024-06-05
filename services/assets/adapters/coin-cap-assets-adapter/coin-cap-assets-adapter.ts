@@ -4,6 +4,7 @@ import { GetCoinCapAssetResponse, GetCoinCapAssetsPayload } from '@services/asse
 import { urlErrorResponse, defaultErrorResponse } from '@services/assets/utils';
 
 export const COIN_CAP_ASSETS_ENDPOINT = 'https://api.coincap.io/v2/assets';
+const MAX_AMOUNT_ASSETS = 2296;
 
 const getAssets = async ({ search, ids, limit, offset }: GetCoinCapAssetsPayload): Promise<GetAssetsResponse> => {
     try {
@@ -38,9 +39,14 @@ export const getCoinCapAssetIconUrl = async (symbol: string)  => await new Promi
     resolve(`https://assets.coincap.io/assets/icons/${parseAssetIconId(symbol)}@2x.png`);
 });
 
+export const getMaxAmountAssets = async ()  => await new Promise<number>((resolve) => {
+    resolve(MAX_AMOUNT_ASSETS);
+});
+
 const CoinCapAssetsAdapter = {
     getAssets,
-    getCoinCapAssetIconUrl
+    getCoinCapAssetIconUrl,
+    getMaxAmountAssets
 };
 
 export default CoinCapAssetsAdapter;
