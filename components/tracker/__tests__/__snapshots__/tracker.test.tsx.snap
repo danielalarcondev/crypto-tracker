@@ -7,29 +7,47 @@ exports[`TrackerPage:  should render error page if service returns no assets 1`]
     data-testid="tracker"
   >
     <div
-      class="rounded-lg border border-neutral-300 bg-neutral-100 dark:bg-neutral-600"
-    />
-    <div
-      class="w-[26rem] h-32 bg-red-300 rounded-md p-6"
+      class="flex flex-col w-full h-fit bg-neutral-100 dark:bg-neutral-800 rounded-md p-6 items-center self-center"
       data-testid="assents-no-results"
     >
       <h1
-        class="text-md mb-4"
-        data-testid="assents-no-results-message"
+        class="text-md mb-1 flex gap-1"
+        data-testid="assents-no-results-title"
       >
-        No results. Would you like to try again?
+        <span>
+          No results
+        </span>
+        <svg
+          class="size-5 self-center"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.182 16.318A4.486 4.486 0 0 0 12.016 15a4.486 4.486 0 0 0-3.198 1.318M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
       </h1>
+      <h2
+        class="text-md mb-4"
+        data-testid="assents-no-results-description"
+      >
+        Would you like to try again?
+      </h2>
       <button
-        class="group relative flex items-stretch justify-center p-0.5 text-center font-medium transition-[color,background-color,border-color,text-decoration-color,fill,stroke,box-shadow] focus:z-10 focus:outline-none bg-blue-500/80 hover:bg-blue-500 border border-white text-white rounded-lg w-full"
+        class="group relative items-stretch justify-center p-0.5 text-center font-medium transition-[color,background-color,border-color,text-decoration-color,fill,stroke,box-shadow] focus:z-10 focus:outline-none bg-primary-500 hover:bg-primary-600 text-white w-24 h-24 flex flex-wrap content-center rounded-full self-center"
         data-testid="assets-no-results-retry-button"
         type="button"
       >
         <span
           class="flex items-stretch transition-all duration-200 rounded-md px-4 py-2 text-sm"
         >
-          Retry
           <svg
-            class="w-4 h-4 ml-2 flex self-center"
+            class="w-16 h-16 flex self-center hover:rotate-90"
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"

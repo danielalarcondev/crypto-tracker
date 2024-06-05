@@ -6,6 +6,11 @@ import { expect, it, describe, beforeEach } from '@jest/globals';
 import Tracker from '@components/tracker/tracker';
 import { mockedAssets } from '@tests/utils';
 
+jest.mock('next/navigation', () => ({
+    ...require('next-router-mock'),
+    useSearchParams: () => jest.fn(),
+}));
+
 describe('TrackerPage: ', () => {
 
     beforeEach(() => (

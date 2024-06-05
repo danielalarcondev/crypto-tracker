@@ -10,9 +10,11 @@ describe('Assets No Results: ', () => {
     it('should render correctly', () => {
         const { container } = render(<NoResults onRetry={jest.fn()} />);
 
-        const message = screen.getByTestId('assents-no-results-message');
+        const title = screen.getByTestId('assents-no-results-title');
+        const description = screen.getByTestId('assents-no-results-description');
 		
-        expect(message?.textContent).toBe('No results. Would you like to try again?');
+        expect(title?.textContent).toBe('No results');
+        expect(description?.textContent).toBe('Would you like to try again?');
         expect(container).toMatchSnapshot();
     });
 	

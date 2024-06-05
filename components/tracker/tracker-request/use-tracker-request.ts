@@ -1,23 +1,28 @@
 import { Asset, GetAssetsResponse } from '@common-types/assets';
-import { getAssets } from '@services/assets';
-import { RefObject, useCallback, useRef, useState } from 'react';
+import * as AssetsService from '@services/assets';
+import { RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { Id, toast } from 'react-toastify';
+
+const LIMIT = 50;
+const INIT_MAX_AMOUNT_ASSETS = 0;
+export const TABLE_TOP_MARGIN = 80;
+const ONE = 1;
 
 interface TrackerRequestResult {
 	assets: Asset[],
-	requestGetAssets:  (limit: number, offset: number) => Promise<void>,
+	requestGetAssets:  (page: number) => Promise<void>,
 	isRequesting: boolean,
-	requestCurrentPage: (limit: number, currentPage: number) => void
+	limit: number,
+	maxAmountAssets: number
 }
-
-const TABLE_TOP_MARGIN = 80;
 
 export const useTrackerRequest = (ref: RefObject<HTMLDivElement>): TrackerRequestResult => {
 
-    const ONE = 1;
     const [assets, setAssets] = useState<Asset[]>([]);
     const [isRequesting, setIsRequesting] = useState<boolean>(true);
+
     const requestErrorAlertId = useRef<Id | null>(null);
+    const maxAmountAssets = useRef<number>(INIT_MAX_AMOUNT_ASSETS);
 
     const handleRequestSuccess = useCallback((response: GetAssetsResponse) => {
         setAssets(response.data);
@@ -38,18 +43,19 @@ export const useTrackerRequest = (ref: RefObject<HTMLDivElement>): TrackerReques
     }, []);
 
     const scrollToTopOfTable = useCallback(() => {
-        if ( ref?.current?.offsetTop) {
+        if ( ref?.current?.offsetTop !== undefined) {
             window.scrollTo({ top: ref.current.offsetTop  - TABLE_TOP_MARGIN, behavior: 'smooth'});
         }
     }, [ref]);
 
-    const requestGetAssets = useCallback(async (limit: number, offset: number) => {
+    const requestGetAssets = useCallback(async (page: number) => {
         
         setAssets([]);
         setIsRequesting(true);
         scrollToTopOfTable();
 		
-        const response = await getAssets({ limit, offset });
+        const offset = (page - ONE) * LIMIT;
+        const response = await AssetsService.getAssets({ limit: LIMIT, offset });
 
         if (response.error) {
             handleRequestFail(response);
@@ -60,15 +66,20 @@ export const useTrackerRequest = (ref: RefObject<HTMLDivElement>): TrackerReques
         setIsRequesting(false);
     }, [handleRequestFail, handleRequestSuccess, scrollToTopOfTable]);
 
-    const requestCurrentPage = useCallback((limit: number, currentPage: number) => {
-        const offset = limit * (currentPage - ONE);
-        requestGetAssets(limit, offset);
-    }, [requestGetAssets]);
+    useEffect(() => {
+
+        const getMaxAmountAssets = async () => {
+            maxAmountAssets.current = await AssetsService.getMaxAmountAssets();
+        };
+
+        getMaxAmountAssets();
+    }, []);
 
     return {
         assets,
         requestGetAssets,
-        requestCurrentPage,
-        isRequesting
+        isRequesting,
+        limit: LIMIT,
+        maxAmountAssets: maxAmountAssets.current
     };
 };

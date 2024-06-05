@@ -112,11 +112,11 @@ describe('ThemeToggle: ', () => {
         defineLightScheme();
         defineNotSavedTheme(setItem);
         
-        const { baseElement } = render(<ThemeToggle />);
+    	render(<ThemeToggle />);
         const input = screen.getByTestId('header-theme-toggle-input') as HTMLInputElement;
-        const rootElement = baseElement.parentElement;
+        const bodyElement = document.body;
 
-        expect(rootElement).not.toHaveClass('dark');
+        expect(bodyElement).not.toHaveClass('dark');
         expect(input.checked).toEqual(false);
         expect(setItem).toHaveBeenCalledWith(THEME_LOCAL_STORAGE_KEY, ThemeConfig.LIGHT);
 	
@@ -124,7 +124,7 @@ describe('ThemeToggle: ', () => {
 
         expect(input.checked).toEqual(true);
         expect(setItem).toHaveBeenCalledWith(THEME_LOCAL_STORAGE_KEY, ThemeConfig.DARK);
-        expect(rootElement).toHaveClass('dark');
+        expect(bodyElement).toHaveClass('dark');
     });
 
     it('should turn off dark mode', () => {
@@ -136,9 +136,9 @@ describe('ThemeToggle: ', () => {
         
         const { baseElement } = render(<ThemeToggle />);
         const input = screen.getByTestId('header-theme-toggle-input') as HTMLInputElement;
-        const rootElement = baseElement.parentElement;
+        const bodyElement = document.body;
 
-        expect(rootElement).toHaveClass('dark');
+        expect(bodyElement).toHaveClass('dark');
         expect(input.checked).toEqual(true);
         expect(setItem).toHaveBeenCalledWith(THEME_LOCAL_STORAGE_KEY, ThemeConfig.DARK);
 	
@@ -146,7 +146,7 @@ describe('ThemeToggle: ', () => {
 
         expect(input.checked).toEqual(false);
         expect(setItem).toHaveBeenCalledWith(THEME_LOCAL_STORAGE_KEY, ThemeConfig.LIGHT);
-        expect(rootElement).not.toHaveClass('dark');
+        expect(bodyElement).not.toHaveClass('dark');
 		
     });
 

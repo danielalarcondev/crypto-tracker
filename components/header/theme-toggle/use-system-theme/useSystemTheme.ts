@@ -17,10 +17,10 @@ interface SystemThemeResult {
 const useSystemTheme = (): SystemThemeResult => {
 
     const [isThemeSwitcherChecked, setIsThemeSwitcherChecked] = useState<boolean>(false);
-    const documentRoot = useRef<HTMLElement | null>(null);
+    const documentBody = useRef<HTMLElement | null>(null);
 
     const toggleTheme = useCallback((force: boolean) => {
-        documentRoot.current?.classList.toggle(TAILWIND_DARK_SELECTOR_CLASS, force);
+        documentBody.current?.classList.toggle(TAILWIND_DARK_SELECTOR_CLASS, force);
     }, []);
 
     const getThemeConfig = useCallback((): ThemeConfig => {
@@ -37,7 +37,7 @@ const useSystemTheme = (): SystemThemeResult => {
 	
     useEffect(() => {
         const theme = getThemeConfig();
-        documentRoot.current = window.document.documentElement;
+        documentBody.current = document.body;
 
         if (theme === ThemeConfig.DARK) {
             setIsThemeSwitcherChecked(true);

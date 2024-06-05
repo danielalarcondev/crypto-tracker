@@ -6,6 +6,11 @@ import { expect, it, describe } from '@jest/globals';
 import TrackerPage from '@app/tracker/page';
 import { mockedAssets } from '@tests/utils';
 
+jest.mock('next/navigation', () => ({
+    ...require('next-router-mock'),
+    useSearchParams: () => jest.fn(),
+}));
+
 describe('TrackerPage: ', () => {
 
     it('should render correctly', async () => {

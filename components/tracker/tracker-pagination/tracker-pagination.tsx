@@ -7,17 +7,11 @@ import classNames from 'classnames';
 
 interface TrackerPaginationProps {
 	currentPage: number;
-	setCurrentPage: Dispatch<SetStateAction<number>>
+	setCurrentPage: Dispatch<SetStateAction<number | null>>
 	totalPages: number
 }
 
 export default function TrackerPagination({ currentPage, setCurrentPage, totalPages }: TrackerPaginationProps) {
-
-    const [shouldHide, setShouldHide] = useState(true);
-
-    useEffect(() => {
-        setShouldHide(false);
-    }, []);
 
     return (
         <div 
@@ -32,15 +26,12 @@ export default function TrackerPagination({ currentPage, setCurrentPage, totalPa
             <ResponsivePagination
                 total={totalPages}
                 current={currentPage}
-                onPageChange={setCurrentPage}
+                onPageChange={(page) => setCurrentPage(page)}
                 className={classNames([
                     'inline-flex',
                     'w-full',
                     'justify-center'
-                	].join(' '), 
-                	{
-                    	'hidden': shouldHide
-                	})
+                	].join(' '))
                 }
                 pageItemClassName={[
                     'w-8',
