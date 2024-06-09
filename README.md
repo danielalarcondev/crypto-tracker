@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Crypto Tracker
 
-## Getting Started
+Crypto tracker is a tracker to follow cryptocurrencies data and prices in real time.
 
-First, run the development server:
+-   Developed with Next.js, React and TypeScript.
+-   Responsive with a mobile-first approach, styled with Tailwind.
+-   Lint, to reduce errors and improve the overall quality of the code.
+-   Husky to use git hooks to ensure integration by running operations on commit and push.
+-   Tested with unit tests written in Jest, component tests written in Jest-React Testing Library and End-To-End tests written in Playwright.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Open official deployment:
+
+Find the url attached in the "about" section
+
+## Set up locally
+
+### 1. Install dependencies
+
+-   Node Js: v18 or later.
+
+### 2. Run the following commands in the project root
+
+```sh
+npm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```sh
+npm run build
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 3. Open in a browser
 
-## Learn More
+```sh
+http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 4. All Commands
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All commands are run from the root of the project, from a terminal:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Command                              | Action                                      |
+| :----------------------------------- | :------------------------------------------ |
+| `npm install`                        | Installs dependencies                       |
+| `npm run start`                      | Starts local server at `localhost:3000`     |
+| `npm run start:dev`                  | Starts local dev server at `localhost:3000` |
+| `npm run build`                      | Build production site to `./next/`          |
+| `npm run lint`                       | Check if lint rules are followed            |
+| `npm run prepare`                    | Prepare husky                               |
+| `npm run test`                       | Run unit tests and component tests          |
+| `npm run test:e2e`                   | Run e2e tests in headed mode                |
+| `npm run test:e2e-ui`                | Run e2e tests in UI mode                    |
+| `npm run test:all`                   | Run all tests                               |
+| `npm run update:minimum-node-engine` | Check minimum node version required         |
