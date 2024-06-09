@@ -144,8 +144,7 @@ export default function Header() {
                             })}>
                             {
                                 [
-                                    { path: Routes.TRACKER, text: 'Tracker' },
-                                    { path: Routes.ASSETS, text: 'Assets'}
+                                    { path: Routes.TRACKER, text: 'Tracker' }
                                 ].map((link, index) => (
                                     <ListItem key={index} path={link.path} text={link.text} isMenuOpen={isMenuOpen} />
                                 ))

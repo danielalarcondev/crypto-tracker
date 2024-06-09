@@ -69,16 +69,6 @@ exports[`Header:  should render correctly 1`] = `
                 Tracker
               </a>
             </li>
-            <li
-              class="pl-3 pr-3 text-xl hover:cursor-pointer border-b-4 hover:text-primary-500 border-transparent w-fit h-[calc(100%+1px)]"
-            >
-              <a
-                class="menu-anchor block md:bg-transparent h-full flex items-center mt-1"
-                href="/assets"
-              >
-                Assets
-              </a>
-            </li>
           </ul>
         </div>
         <div
