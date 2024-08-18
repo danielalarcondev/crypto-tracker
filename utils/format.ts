@@ -1,4 +1,4 @@
-export const formatLargeNumber = (number: string) => {
+export const formatLargeNumber = (number: number) => {
 
     const formatter: Intl.NumberFormat = new Intl.NumberFormat('en-US', {
         notation: 'compact',
@@ -7,10 +7,10 @@ export const formatLargeNumber = (number: string) => {
         maximumFractionDigits: 2
     });
 
-    return formatter.format(Number(number));
+    return formatter.format(number);
 };
 
-export const formatPercentageNumber = (percentage: string) => {
+export const formatPercentageNumber = (percentage: number) => {
 
     const TWO_DECIMALS = 2;
     const number = Number(percentage);
