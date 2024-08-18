@@ -1,4 +1,4 @@
-import { GetAssetsResponse } from '@common-types/assets';
+import { Asset, GetAssetsResponse } from '@common-types/assets';
 import { parseAssetIconId, prepareCoinCapAssetsUrl } from '@services/assets/adapters/coin-cap-assets-adapter/helpers';
 import { GetCoinCapAssetResponse, GetCoinCapAssetsPayload } from '@services/assets/adapters/coin-cap-assets-adapter/types';
 import { urlErrorResponse, defaultErrorResponse } from '@services/assets/utils';
@@ -27,8 +27,26 @@ const getAssets = async ({ search, ids, limit, offset }: GetCoinCapAssetsPayload
             };
         }
 
-        const dataResponse: GetCoinCapAssetResponse = await response.json();
-        return dataResponse as GetAssetsResponse;
+        const coinCapData: GetCoinCapAssetResponse = await response.json();
+
+        const assets: Asset[] = coinCapData.data.map((asset) => ({
+            ...asset,
+            rank: Number(asset.rank),
+            supply: Number(asset.supply),
+            maxSupply: (asset.maxSupply && asset.maxSupply !== 'null') ? Number(asset.maxSupply) : null,
+            marketCapUsd: Number(asset.marketCapUsd),
+            volumeUsd24Hr: Number(asset.volumeUsd24Hr),
+            priceUsd: Number(asset.priceUsd),
+            changePercent24Hr: Number(asset.changePercent24Hr),
+            vwap24Hr: Number(asset.vwap24Hr)
+        }));
+
+        const data: GetAssetsResponse = {
+            ...coinCapData,
+            data: assets
+        };
+
+        return data;
 
     } catch(error) {
         return defaultErrorResponse;
