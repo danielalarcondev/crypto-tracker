@@ -2,16 +2,16 @@ import { HttpError } from '@common-types/error';
 
 export interface Asset {
 	id: string,
-	rank: string,
+	rank: number,
 	symbol: string,
 	name: string,
-	supply: string,
-	maxSupply: string  | null,
-	marketCapUsd: string,
-	volumeUsd24Hr: string,
-	priceUsd: string,
-	changePercent24Hr: string,
-	vwap24Hr: string
+	supply: number,
+	maxSupply: number  | null,
+	marketCapUsd: number,
+	volumeUsd24Hr: number,
+	priceUsd: number,
+	changePercent24Hr: number,
+	vwap24Hr: number
 }
 
 export interface GetAssetPayload {
