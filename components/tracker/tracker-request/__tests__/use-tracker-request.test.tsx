@@ -8,6 +8,8 @@ import { TABLE_TOP_MARGIN, useTrackerRequest } from '@components/tracker/tracker
 import { mockedAssets } from '@tests/utils';
 import { ToastContainer } from 'react-toastify';
 
+const ZERO = 0;
+
 describe('useTrackerRequest: ', () => {
     
     const wrapper = ( ref: React.RefObject<HTMLDivElement>) => {
@@ -135,7 +137,7 @@ describe('useTrackerRequest: ', () => {
 
         act(() => {
             result.current.requestGetAssets(page);
-            expect(scrollToMock).toHaveBeenCalledWith({ top: (ref.current?.offsetTop ?? 0) - TABLE_TOP_MARGIN, behavior: 'smooth' });
+            expect(scrollToMock).toHaveBeenCalledWith({ top: (ref.current?.offsetTop ?? ZERO) - TABLE_TOP_MARGIN, behavior: 'smooth' });
         });
         
 
