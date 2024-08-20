@@ -106,7 +106,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               $6.93K
             </td>
             <td
-              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xs:table-cell w-32"
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden xl:table-cell w-32 text-red-500"
             >
               -0.81%
             </td>
@@ -169,12 +169,12 @@ exports[`TrackerTable:  should render correctly 1`] = `
             <td
               class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 w-32"
             >
-              $404.98
+              $404.97
             </td>
             <td
-              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xs:table-cell w-32"
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden xl:table-cell w-32 text-green-500"
             >
-              -0.10%
+              1.20%
             </td>
             <td
               class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
@@ -190,6 +190,72 @@ exports[`TrackerTable:  should render correctly 1`] = `
               class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden sm:table-cell w-32"
             >
               1.03B
+            </td>
+          </tr>
+          <tr
+            class="group/row bg-white dark:bg-neutral-800"
+            data-testid="table-row-element"
+          >
+            <td
+              class="md:px-6 neutral-50 dark:bg-neutral-800 p-4 w-24 hidden xl:table-cell"
+            >
+              3
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 flex w-fit max-w-32 gap-2 whitespace-nowrap font-medium text-gray-900 dark:text-white"
+            >
+              <img
+                alt="icon"
+                class="w-8 h-8"
+                data-nimg="1"
+                data-testid="tracker-table-name-image"
+                decoding="async"
+                height="32"
+                loading="lazy"
+                src="http://localhost/_next/image?url=%2Floading-icon.gif&w=64&q=75"
+                srcset="/_next/image?url=%2Floading-icon.gif&w=32&q=75 1x, /_next/image?url=%2Floading-icon.gif&w=64&q=75 2x"
+                style="color: transparent;"
+                width="32"
+              />
+              <div
+                class="flex flex-col self-center"
+              >
+                <span
+                  class="font-bold"
+                >
+                  XRP
+                </span>
+                <small
+                  class="text-neutral-400 pl-0.5"
+                >
+                  XRP
+                </small>
+              </div>
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 w-32"
+            >
+              $0.42
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden xl:table-cell w-32"
+            >
+              0.00%
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
+            >
+              16.52B
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden lg:table-cell w-32"
+            >
+              39.30B
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden sm:table-cell w-32"
+            >
+              149.33M
             </td>
           </tr>
         </tbody>
