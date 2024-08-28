@@ -169,12 +169,12 @@ exports[`TrackerTable:  should render correctly 1`] = `
             <td
               class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 w-32"
             >
-              $404.98
+              $404.97
             </td>
             <td
               class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xs:table-cell w-32"
             >
-              -0.10%
+              -0.09%
             </td>
             <td
               class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
