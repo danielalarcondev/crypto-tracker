@@ -71,7 +71,7 @@ const TrackerTable = forwardRef<HTMLDivElement, TrackerTableProps>(({ assets }, 
                 <TableHeadCell 
                     className={[
                         'hidden xl:table-cell', 
-                        'w-32'
+                        'w-36'
                     ].join(' ')
                     }
                 >
@@ -142,7 +142,7 @@ const TrackerTable = forwardRef<HTMLDivElement, TrackerTableProps>(({ assets }, 
                         <TrackerAssetCell 
                             className={[
                                 'hidden xl:table-cell', 
-                                'w-32'
+                                'w-36'
                             ].join(' ')
                             }
                         >
