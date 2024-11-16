@@ -41,7 +41,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               24h %
             </th>
             <th
-              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden xl:table-cell w-32"
+              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden xl:table-cell w-36"
             >
               Market cap
             </th>
@@ -111,7 +111,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               -0.81%
             </td>
             <td
-              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-36"
             >
               119.15B
             </td>
@@ -177,7 +177,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               1.20%
             </td>
             <td
-              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-36"
             >
               40.97B
             </td>
@@ -243,7 +243,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               0.00%
             </td>
             <td
-              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-36"
             >
               16.52B
             </td>
