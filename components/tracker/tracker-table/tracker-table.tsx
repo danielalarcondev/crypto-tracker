@@ -1,3 +1,6 @@
+import classNames from 'classnames';
+
+
 import { Asset } from '@common-types/assets';
 import { tableTheme } from '@components/tracker/tracker-table/table-theme';
 import TrackerAssetCell from '@components/tracker/tracker-table/tracker-asset-cell/tracker-asset-cell';
@@ -11,6 +14,8 @@ import { RefObject, forwardRef } from 'react';
 export interface TrackerTableProps {
 	assets: Asset[]
 }
+
+const ZERO = 0;
 
 const TrackerTable = forwardRef<HTMLDivElement, TrackerTableProps>(({ assets }, ref ) => (
     <div
@@ -119,12 +124,17 @@ const TrackerTable = forwardRef<HTMLDivElement, TrackerTableProps>(({ assets }, 
                             {`$${formatLargeNumber(asset.priceUsd)}`}
                         </TrackerAssetCell>
 
-                        <TrackerAssetCell 
-                            className={[
-                                'hidden xs:table-cell', 
+                        <TrackerAssetCell
+                            className={classNames([
+                                'tracker-table-change-percentage',
+                                'hidden xl:table-cell', 
                                 'w-32'
-                            ].join(' ')
+                            ].join(' '), 
+                            {
+                                'text-green-500': asset.changePercent24Hr > ZERO,
+                                'text-red-500': asset.changePercent24Hr < ZERO,
                             }
+                            )}
                         >
                             {formatPercentageNumber(asset.changePercent24Hr)}
                         </TrackerAssetCell>

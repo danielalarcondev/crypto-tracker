@@ -30,7 +30,20 @@ export const mockedAssets: Asset[] = [
         marketCapUsd: 40967739219.66,
         volumeUsd24Hr: 1026669440.64,
         priceUsd: 404.97,
-        changePercent24Hr: -0.09,
+        changePercent24Hr: 1.2,
         vwap24Hr: 415.32
-	  }
+	  },
+	  {
+        id: 'ripple',
+        rank: 3,
+        symbol: 'XRP',
+        name: 'XRP',
+        supply: 39299874590.0000000000000000,
+        maxSupply: 100000000000,
+        marketCapUsd: 16517228249.29,
+        volumeUsd24Hr: 149328134.50,
+        priceUsd: 0.42,
+        changePercent24Hr: 0,
+        vwap24Hr: 0.43
+	  },
 ];
