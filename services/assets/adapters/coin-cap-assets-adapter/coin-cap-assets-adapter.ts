@@ -14,7 +14,7 @@ const getAssets = async ({ search, ids, limit, offset }: GetCoinCapAssetsPayload
             return urlErrorResponse;
         }
 		
-        const response = await fetch(url, { cache: 'force-cache', method: 'GET' });
+        const response = await fetch(url, { method: 'GET' });
 
         if (!response.ok) {
             return {
