@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrackerTable:  should render correctly 1`] = `
+<div>
+  <div
+    class="overflow-x-auto rounded-lg"
+    data-testid="tracker-table"
+  >
+    <div
+      class="relative"
+      data-testid="table-element"
+    >
+      <div
+        class="absolute left-0 top-0 -z-10 h-full w-full drop-shadow-md dark:bg-neutral-950"
+      />
+      <table
+        class="w-full text-left text-sm text-neutral-500 dark:text-neutral-400"
+      >
+        <thead
+          class="group/head text-xs uppercase text-neutral-700 dark:text-neutral-100"
+        >
+          <tr>
+            <th
+              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden xl:table-cell w-24"
+            >
+              #
+            </th>
+            <th
+              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 w-fit"
+            >
+              Name
+            </th>
+            <th
+              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 w-32"
+            >
+              Price
+            </th>
+            <th
+              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden xs:table-cell w-32"
+            >
+              24h %
+            </th>
+            <th
+              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden xl:table-cell w-32"
+            >
+              Market cap
+            </th>
+            <th
+              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden lg:table-cell w-32"
+            >
+              Supply
+            </th>
+            <th
+              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden sm:table-cell w-32"
+            >
+              Volume 24h
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="group/body dark:text-neutral-200 divide-y"
+        >
+          <tr
+            class="group/row bg-white dark:bg-neutral-800"
+            data-testid="table-row-element"
+          >
+            <td
+              class="md:px-6 neutral-50 dark:bg-neutral-800 p-4 w-24 hidden xl:table-cell"
+            >
+              1
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 flex w-fit max-w-32 gap-2 whitespace-nowrap font-medium text-gray-900 dark:text-white"
+            >
+              <img
+                alt="icon"
+                class="w-8 h-8"
+                data-nimg="1"
+                data-testid="tracker-table-name-image"
+                decoding="async"
+                height="32"
+                loading="lazy"
+                src="http://localhost/_next/image?url=%2Floading-icon.gif&w=64&q=75"
+                srcset="/_next/image?url=%2Floading-icon.gif&w=32&q=75 1x, /_next/image?url=%2Floading-icon.gif&w=64&q=75 2x"
+                style="color: transparent;"
+                width="32"
+              />
+              <div
+                class="flex flex-col self-center"
+              >
+                <span
+                  class="font-bold"
+                >
+                  Bitcoin
+                </span>
+                <small
+                  class="text-neutral-400 pl-0.5"
+                >
+                  BTC
+                </small>
+              </div>
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 w-32"
+            >
+              $6.93K
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden xl:table-cell w-32 text-red-500"
+            >
+              -0.81%
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
+            >
+              119.15B
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden lg:table-cell w-32"
+            >
+              17.19M
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden sm:table-cell w-32"
+            >
+              2.93B
+            </td>
+          </tr>
+          <tr
+            class="group/row bg-white dark:bg-neutral-800"
+            data-testid="table-row-element"
+          >
+            <td
+              class="md:px-6 neutral-50 dark:bg-neutral-800 p-4 w-24 hidden xl:table-cell"
+            >
+              2
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 flex w-fit max-w-32 gap-2 whitespace-nowrap font-medium text-gray-900 dark:text-white"
+            >
+              <img
+                alt="icon"
+                class="w-8 h-8"
+                data-nimg="1"
+                data-testid="tracker-table-name-image"
+                decoding="async"
+                height="32"
+                loading="lazy"
+                src="http://localhost/_next/image?url=%2Floading-icon.gif&w=64&q=75"
+                srcset="/_next/image?url=%2Floading-icon.gif&w=32&q=75 1x, /_next/image?url=%2Floading-icon.gif&w=64&q=75 2x"
+                style="color: transparent;"
+                width="32"
+              />
+              <div
+                class="flex flex-col self-center"
+              >
+                <span
+                  class="font-bold"
+                >
+                  Ethereum
+                </span>
+                <small
+                  class="text-neutral-400 pl-0.5"
+                >
+                  ETH
+                </small>
+              </div>
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 w-32"
+            >
+              $404.97
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden xl:table-cell w-32 text-green-500"
+            >
+              1.20%
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
+            >
+              40.97B
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden lg:table-cell w-32"
+            >
+              101.16M
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden sm:table-cell w-32"
+            >
+              1.03B
+            </td>
+          </tr>
+          <tr
+            class="group/row bg-white dark:bg-neutral-800"
+            data-testid="table-row-element"
+          >
+            <td
+              class="md:px-6 neutral-50 dark:bg-neutral-800 p-4 w-24 hidden xl:table-cell"
+            >
+              3
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 flex w-fit max-w-32 gap-2 whitespace-nowrap font-medium text-gray-900 dark:text-white"
+            >
+              <img
+                alt="icon"
+                class="w-8 h-8"
+                data-nimg="1"
+                data-testid="tracker-table-name-image"
+                decoding="async"
+                height="32"
+                loading="lazy"
+                src="http://localhost/_next/image?url=%2Floading-icon.gif&w=64&q=75"
+                srcset="/_next/image?url=%2Floading-icon.gif&w=32&q=75 1x, /_next/image?url=%2Floading-icon.gif&w=64&q=75 2x"
+                style="color: transparent;"
+                width="32"
+              />
+              <div
+                class="flex flex-col self-center"
+              >
+                <span
+                  class="font-bold"
+                >
+                  XRP
+                </span>
+                <small
+                  class="text-neutral-400 pl-0.5"
+                >
+                  XRP
+                </small>
+              </div>
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 w-32"
+            >
+              $0.42
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden xl:table-cell w-32"
+            >
+              0.00%
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
+            >
+              16.52B
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden lg:table-cell w-32"
+            >
+              39.30B
+            </td>
+            <td
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden sm:table-cell w-32"
+            >
+              149.33M
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
