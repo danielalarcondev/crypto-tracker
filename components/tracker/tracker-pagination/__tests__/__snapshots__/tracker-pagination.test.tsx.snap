@@ -8,6 +8,7 @@ exports[`TrackerPage:  should render correctly 1`] = `
   >
     <ul
       class="inline-flex w-full justify-center"
+      style=""
     >
       <li
         class="w-8 h-10 rounded-full mr-2 shrink-0 pointer hover:bg-primary-500/10 disabled border-none text-3xl navigation-span-pointer hover:scale-110"
