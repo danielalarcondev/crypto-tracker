@@ -12,7 +12,8 @@
     "test:e2e": "npx playwright test --headed",
     "test:e2e-ui": "npx playwright test --ui",
     "test:all": "npm run test && npm run test:e2e",
-	"update:minimum-node-engine": "npx ls-engines --save"
+	"update:minimum-node-engine": "npx ls-engines --save",
+	"update:all-packages": "ncu --upgrade && npm install"
   },
   "dependencies": {
     "classnames": "^2.5.1",
