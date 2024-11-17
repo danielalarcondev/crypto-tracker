@@ -36,7 +36,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               Price
             </th>
             <th
-              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden xs:table-cell w-32"
+              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden sm:table-cell w-32"
             >
               24h %
             </th>
@@ -51,7 +51,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               Supply
             </th>
             <th
-              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden sm:table-cell w-32"
+              class="px-4 md:px-6 py-4 bg-neutral-100 dark:bg-neutral-600 hidden xl:table-cell w-32"
             >
               Volume 24h
             </th>
@@ -106,7 +106,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               $6.93K
             </td>
             <td
-              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden xl:table-cell w-32 text-red-500"
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden sm:table-cell w-32 text-red-500"
             >
               -0.81%
             </td>
@@ -121,7 +121,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               17.19M
             </td>
             <td
-              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden sm:table-cell w-32"
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
             >
               2.93B
             </td>
@@ -172,7 +172,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               $404.97
             </td>
             <td
-              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden xl:table-cell w-32 text-green-500"
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden sm:table-cell w-32 text-green-500"
             >
               1.20%
             </td>
@@ -187,7 +187,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               101.16M
             </td>
             <td
-              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden sm:table-cell w-32"
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
             >
               1.03B
             </td>
@@ -238,7 +238,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               $0.42
             </td>
             <td
-              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden xl:table-cell w-32"
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 tracker-table-change-percentage hidden sm:table-cell w-32"
             >
               0.00%
             </td>
@@ -253,7 +253,7 @@ exports[`TrackerTable:  should render correctly 1`] = `
               39.30B
             </td>
             <td
-              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden sm:table-cell w-32"
+              class="px-4 md:px-6 py-4 neutral-50 dark:bg-neutral-800 hidden xl:table-cell w-32"
             >
               149.33M
             </td>
