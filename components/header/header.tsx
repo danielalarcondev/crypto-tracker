@@ -144,10 +144,10 @@ export default function Header() {
                             })}>
                             {
                                 [
-                                    { path: Routes.TRACKER, text: 'Tracker' },
-                                    { path: Routes.ASSETS, text: 'Assets'}
+                                    { path: Routes.TRACKER, text: 'Tracker', id: 'tracker', shouldBeHidden: false },
+                                    { path: Routes.ASSETS, text: 'Assets', id: 'assets', shouldBeHidden: true}
                                 ].map((link, index) => (
-                                    <ListItem key={index} path={link.path} text={link.text} isMenuOpen={isMenuOpen} />
+                                    <ListItem id={link.id} key={index} path={link.path} text={link.text} isMenuOpen={isMenuOpen} shouldBeHidden={link.shouldBeHidden} />
                                 ))
                             }
                         </ul>
