@@ -61,6 +61,7 @@ exports[`Header:  should render correctly 1`] = `
           >
             <li
               class="pl-3 pr-3 text-xl hover:cursor-pointer border-b-4 hover:text-primary-500 border-transparent w-fit h-[calc(100%+1px)]"
+              id="tracker"
             >
               <a
                 class="menu-anchor block md:bg-transparent h-full flex items-center mt-1"
@@ -70,7 +71,8 @@ exports[`Header:  should render correctly 1`] = `
               </a>
             </li>
             <li
-              class="pl-3 pr-3 text-xl hover:cursor-pointer border-b-4 hover:text-primary-500 border-transparent w-fit h-[calc(100%+1px)]"
+              class="pl-3 pr-3 text-xl hover:cursor-pointer border-b-4 hover:text-primary-500 border-transparent w-fit h-[calc(100%+1px)] hidden"
+              id="assets"
             >
               <a
                 class="menu-anchor block md:bg-transparent h-full flex items-center mt-1"
