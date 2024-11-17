@@ -60,7 +60,7 @@ const TrackerTable = forwardRef<HTMLDivElement, TrackerTableProps>(({ assets }, 
                     
                 <TableHeadCell 
                     className={[
-                        'hidden xs:table-cell', 
+                        'hidden sm:table-cell', 
                         'w-32'
                     ].join(' ')
                     }
@@ -90,7 +90,7 @@ const TrackerTable = forwardRef<HTMLDivElement, TrackerTableProps>(({ assets }, 
                     
                 <TableHeadCell 
                     className={[
-                        'hidden sm:table-cell', 
+                        'hidden xl:table-cell', 
                         'w-32'
                     ].join(' ')
                     }
@@ -127,7 +127,7 @@ const TrackerTable = forwardRef<HTMLDivElement, TrackerTableProps>(({ assets }, 
                         <TrackerAssetCell
                             className={classNames([
                                 'tracker-table-change-percentage',
-                                'hidden xl:table-cell', 
+                                'hidden sm:table-cell', 
                                 'w-32'
                             ].join(' '), 
                             {
@@ -160,7 +160,7 @@ const TrackerTable = forwardRef<HTMLDivElement, TrackerTableProps>(({ assets }, 
                             
                         <TrackerAssetCell 
                             className={[
-                                'hidden sm:table-cell', 
+                                'hidden xl:table-cell', 
                                 'w-32'
                             ].join(' ')
                             }
