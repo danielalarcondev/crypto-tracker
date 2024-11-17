@@ -4,18 +4,21 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 interface ListItemProps {
+	id: string,
 	path: string,
 	text: string,
-	isMenuOpen: boolean
+	isMenuOpen: boolean,
+	shouldBeHidden: boolean
 }
 
-export default function ListItem({ path, text, isMenuOpen }: ListItemProps) {
+export default function ListItem({ id, path, text, isMenuOpen, shouldBeHidden }: ListItemProps) {
    
     const pathname = usePathname();
     const isActiveLink = pathname.startsWith(path);
 
     return (
         <li
+            id={id}
             className={classNames([
                 'pl-3',
                 'pr-3',
@@ -26,7 +29,8 @@ export default function ListItem({ path, text, isMenuOpen }: ListItemProps) {
                 	'border-primary-500': isActiveLink,
                 	'border-transparent': !isActiveLink,
                 	'w-[calc(100%-8px)] h-16 mr-2': isMenuOpen,
-                	'w-fit h-[calc(100%+1px)]': !isMenuOpen
+                	'w-fit h-[calc(100%+1px)]': !isMenuOpen,
+                	'hidden': shouldBeHidden
            		})
             }>
             <Link
